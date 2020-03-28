@@ -22,4 +22,7 @@ public interface DrinkDao {
 
     @Query("SELECT * FROM drinks_table LIMIT 1")
     Drink[] getAnyDrink();
+
+    @Query("SELECT * FROM drinks_table ORDER BY RANDOM() LIMIT 1")
+    Drink getRandomDrink();
 }

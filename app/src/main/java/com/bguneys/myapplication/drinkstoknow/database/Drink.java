@@ -3,6 +3,7 @@ package com.bguneys.myapplication.drinkstoknow.database;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = Constants.TABLE_NAME)
@@ -18,13 +19,26 @@ public class Drink {
     @ColumnInfo(name = Constants.COLUMN_ITEM_DESCRIPTION)
     private String mItemDescription;
 
+    @ColumnInfo(name = Constants.COLUMN_ITEM_IMAGE)
+    private int mItemImage;
+
     @ColumnInfo(name = Constants.COLUMN_ITEM_FAVOURITE)
     private Boolean mItemFavourite;
 
-    public Drink(int id, @NonNull String name, @NonNull String description, boolean favourite) {
+    //Constructors
+    @Ignore
+    public Drink(@NonNull String name, @NonNull String description, int image, boolean favourite) {
+        this.mItemName = name;
+        this.mItemDescription = description;
+        this.mItemImage = image;
+        this.mItemFavourite = favourite;
+    }
+
+    public Drink(int id, @NonNull String name, @NonNull String description, int image, boolean favourite) {
         this.mItemId = id;
         this.mItemName = name;
         this.mItemDescription = description;
+        this.mItemImage = image;
         this.mItemFavourite = favourite;
     }
 
@@ -51,6 +65,14 @@ public class Drink {
 
     public void setItemDescription(String mItemDescription) {
         this.mItemDescription = mItemDescription;
+    }
+
+    public int getItemImage() {
+        return mItemImage;
+    }
+
+    public void setItemImage(int mItemImage) {
+        this.mItemImage = mItemImage;
     }
 
     public Boolean getItemFavourite() {
