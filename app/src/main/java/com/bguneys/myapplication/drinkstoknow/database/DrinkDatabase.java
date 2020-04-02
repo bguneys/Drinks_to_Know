@@ -2,6 +2,7 @@ package com.bguneys.myapplication.drinkstoknow.database;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 
@@ -64,7 +65,7 @@ public abstract class DrinkDatabase extends RoomDatabase {
                     //dao.deleteAll();
 
                     if (dao.getAnyDrink().length < 1) {
-                        parseJson(sContext.get());
+                       parseJson(sContext.get());
                     }
 
                 }
@@ -94,11 +95,11 @@ public abstract class DrinkDatabase extends RoomDatabase {
 
             json = stringBuilder.toString();
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray words = jsonObject.getJSONArray("drinks");
+            JSONArray drinks = jsonObject.getJSONArray("drinks");
 
-            for (int i = 0; i < words.length(); i++) {
-                JSONObject jsonDrink = words.getJSONObject(i);
-                Drink newDrink = new Drink(jsonDrink.getString("name"), jsonDrink.getString("description"), jsonDrink.getInt("image"), jsonDrink.getBoolean("favourite"));
+            for (int i = 0; i < drinks.length(); i++) {
+                JSONObject jsonDrink = drinks.getJSONObject(i);
+                Drink newDrink = new Drink(jsonDrink.getString("item_name"), jsonDrink.getString("item_description"), jsonDrink.getInt("item_image"), jsonDrink.getBoolean("item_favourite"));
                 dao.insert(newDrink);
             }
         }

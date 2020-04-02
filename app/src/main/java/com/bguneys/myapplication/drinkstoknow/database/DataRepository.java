@@ -17,18 +17,18 @@ public class DataRepository {
     private LiveData<List<Drink>> mDrinkList;
 
     //constructor
-    DataRepository(Application application) {
+    public DataRepository(Application application) {
         DrinkDatabase wordDatabase = DrinkDatabase.getInstance(application);
         mDrinkDao = wordDatabase.getDrinkDao();
         mDrinkList = mDrinkDao.getDrinkList();
     }
 
     //methods
-    LiveData<List<Drink>> getDrinkList() {
+    public LiveData<List<Drink>> getDrinkList() {
         return mDrinkList;
     }
 
-    void insert (final Drink drink) {
+    public void insert (final Drink drink) {
         //Using ExecutorService instead of AsyncTask
         DrinkDatabase.databaseExecutor.execute(new Runnable() {
             @Override
@@ -38,7 +38,7 @@ public class DataRepository {
         });
     }
 
-    void delete (final Drink drink) {
+    public void delete (final Drink drink) {
         //Using ExecutorService instead of AsyncTask
         DrinkDatabase.databaseExecutor.execute(new Runnable() {
             @Override

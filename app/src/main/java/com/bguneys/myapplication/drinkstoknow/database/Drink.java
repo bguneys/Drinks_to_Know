@@ -34,12 +34,12 @@ public class Drink {
         this.mItemFavourite = favourite;
     }
 
-    public Drink(int id, @NonNull String name, @NonNull String description, int image, boolean favourite) {
-        this.mItemId = id;
-        this.mItemName = name;
-        this.mItemDescription = description;
-        this.mItemImage = image;
-        this.mItemFavourite = favourite;
+    public Drink(int mItemId, @NonNull String mItemName, @NonNull String mItemDescription, int mItemImage, boolean mItemFavourite) {
+        this.mItemId = mItemId;
+        this.mItemName = mItemName;
+        this.mItemDescription = mItemDescription;
+        this.mItemImage = mItemImage;
+        this.mItemFavourite = mItemFavourite;
     }
 
     //Getters & Setters

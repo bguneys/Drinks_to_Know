@@ -25,4 +25,7 @@ public interface DrinkDao {
 
     @Query("SELECT * FROM drinks_table ORDER BY RANDOM() LIMIT 1")
     Drink getRandomDrink();
+
+    @Query("DELETE FROM drinks_table")
+    void deleteAll();
 }
