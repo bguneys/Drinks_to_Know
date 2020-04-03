@@ -99,7 +99,13 @@ public abstract class DrinkDatabase extends RoomDatabase {
 
             for (int i = 0; i < drinks.length(); i++) {
                 JSONObject jsonDrink = drinks.getJSONObject(i);
-                Drink newDrink = new Drink(jsonDrink.getString("item_name"), jsonDrink.getString("item_description"), jsonDrink.getInt("item_image"), jsonDrink.getBoolean("item_favourite"));
+
+                String drinkName = jsonDrink.getString("item_name");
+                String drinkDescription = jsonDrink.getString("item_description");
+                int drinkImage = context.getResources().getIdentifier(jsonDrink.getString("item_image"), "drawable", context.getPackageName());
+                boolean drinkFavourite = jsonDrink.getBoolean("item_favourite");
+
+                Drink newDrink = new Drink(drinkName, drinkDescription, drinkImage, drinkFavourite);
                 dao.insert(newDrink);
             }
         }

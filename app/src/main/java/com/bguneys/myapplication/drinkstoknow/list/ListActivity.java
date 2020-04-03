@@ -43,7 +43,7 @@ public class ListActivity extends AppCompatActivity {
 
         mDummyItemList = new ArrayList<Drink>();
 
-        mRepository = new DataRepository(getApplication());
+        mRepository = DataRepository.getInstance(this);
 
         mListViewModelFactory = new ListViewModelFactory(mRepository);
         mListViewModel = new ViewModelProvider(this, mListViewModelFactory).get(ListViewModel.class);
@@ -56,7 +56,6 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Drink> drinks) {
                 mAdapter.populateList(drinks);
-                Toast.makeText(ListActivity.this, "LiveData works", Toast.LENGTH_SHORT).show();
             }
         });
 

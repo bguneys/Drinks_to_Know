@@ -28,8 +28,6 @@ public class DrinkViewHolder extends RecyclerView.ViewHolder {
     public void bind (Drink currentDrink) {
         mDrinkNameTextView.setText(currentDrink.getItemName());
         mDrinkDescriptionTextView.setText(currentDrink.getItemDescription());
-
-        //TODO: Check image visibility
-        //mDrinkImageImageView.setImageResource(currentDrink.getItemImage());
+        mDrinkImageImageView.setImageResource(currentDrink.getItemImage());
     }
 }

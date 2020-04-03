@@ -3,28 +3,28 @@
     {
       "item_name": "Margarita",
       "item_description": "A nice taste.",
-      "item_image": 1,
+      "item_image": "ic_launcher_foreground",
       "item_favourite": true
     },
 
     {
       "item_name": "Long Island",
       "item_description": "Party starter.",
-      "item_image": 2,
+      "item_image": "ic_launcher_foreground",
       "item_favourite": true
     },
 
     {
       "item_name": "Bacardi",
       "item_description": "Real time saver.",
-      "item_image": 3,
+      "item_image": "ic_launcher_foreground",
       "item_favourite": false
     },
 
     {
       "item_name": "Daquirine",
       "item_description": "Nice one to have.",
-      "item_image": 4,
+      "item_image": "ic_launcher_foreground",
       "item_favourite": false
     }
   ]

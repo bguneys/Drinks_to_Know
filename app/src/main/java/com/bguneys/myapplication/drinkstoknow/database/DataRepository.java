@@ -1,11 +1,13 @@
 package com.bguneys.myapplication.drinkstoknow.database;
 
 import android.app.Application;
+import android.content.Context;
 
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
@@ -15,10 +17,23 @@ public class DataRepository {
     //fields
     private DrinkDao mDrinkDao;
     private LiveData<List<Drink>> mDrinkList;
+    private static volatile DataRepository sInstance = null;
 
-    //constructor
-    public DataRepository(Application application) {
-        DrinkDatabase wordDatabase = DrinkDatabase.getInstance(application);
+    public static DataRepository getInstance(Context context) {
+
+        if (sInstance == null) {
+            synchronized (DataRepository.class) {
+                if (sInstance == null) {
+                    sInstance = new DataRepository(context);
+                }
+            }
+        }
+
+        return sInstance;
+    }
+
+    private DataRepository(Context context) {
+        DrinkDatabase wordDatabase = DrinkDatabase.getInstance(context);
         mDrinkDao = wordDatabase.getDrinkDao();
         mDrinkList = mDrinkDao.getDrinkList();
     }
@@ -29,7 +44,6 @@ public class DataRepository {
     }
 
     public void insert (final Drink drink) {
-        //Using ExecutorService instead of AsyncTask
         DrinkDatabase.databaseExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -39,7 +53,6 @@ public class DataRepository {
     }
 
     public void delete (final Drink drink) {
-        //Using ExecutorService instead of AsyncTask
         DrinkDatabase.databaseExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -53,7 +66,6 @@ public class DataRepository {
         try {
             return (Drink) DrinkDatabase.databaseExecutor.submit(new Callable() {
                 public final Object call() {
-                    //return TeaDao.this.getRandomTea();
                     return mDrinkDao.getRandomDrink();
                 }
             }).get();
