@@ -32,16 +32,12 @@ public class ListActivity extends AppCompatActivity {
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
 
-    ArrayList<Drink> mDummyItemList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mDummyItemList = new ArrayList<Drink>();
 
         mRepository = DataRepository.getInstance(this);
 
@@ -63,14 +59,6 @@ public class ListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 }
