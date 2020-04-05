@@ -11,7 +11,7 @@
         android:id="@+id/textView_drinkHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="?attr/actionBarSize"
         android:text="Drink Header"
         android:textSize="18sp"
         android:textStyle="bold"

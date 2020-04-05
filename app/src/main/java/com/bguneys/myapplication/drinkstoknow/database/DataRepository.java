@@ -38,9 +38,12 @@ public class DataRepository {
         mDrinkList = mDrinkDao.getDrinkList();
     }
 
-    //methods
     public LiveData<List<Drink>> getDrinkList() {
         return mDrinkList;
+    }
+
+    public LiveData<Drink> getDrinkWithId(int id) {
+        return mDrinkDao.getDrinkWithId(id);
     }
 
     public void insert (final Drink drink) {

@@ -28,4 +28,7 @@ public interface DrinkDao {
 
     @Query("DELETE FROM drinks_table")
     void deleteAll();
+
+    @Query("SELECT * FROM drinks_table WHERE item_id LIKE:itemId")
+    LiveData<Drink> getDrinkWithId(int itemId);
 }

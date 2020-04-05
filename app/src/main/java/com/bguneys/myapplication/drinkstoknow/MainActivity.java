@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Drink;
+import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
 import com.bguneys.myapplication.drinkstoknow.list.ListActivity;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModel;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModelFactory;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     TextView mDrinkHeaderTextView;
     TextView mDrinkDescriptionTextView;
     ImageView mDrinkImageView;
+
+    int mTempDrinkId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 mDrinkDescriptionTextView.setText(drink.getItemDescription());
                 mDrinkImageView.setImageResource(drink.getItemImage());
 
+                mTempDrinkId = drink.getItemId();
+
             }
         });
     }
 
     public void startListActivity(View view) {
-        Intent intent = new Intent(this, ListActivity.class);
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("DRINK_ID", mTempDrinkId);
         startActivity(intent);
     }
 }
