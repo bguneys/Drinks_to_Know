@@ -1,11 +1,14 @@
 package com.bguneys.myapplication.drinkstoknow.list;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 import com.bguneys.myapplication.drinkstoknow.adapter.DrinkRecyclerViewAdapter;
+import com.bguneys.myapplication.drinkstoknow.adapter.DrinkViewHolder;
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Drink;
+import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,6 +34,8 @@ public class ListActivity extends AppCompatActivity {
     ListViewModel mListViewModel;
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
+
+    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,28 @@ public class ListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mAdapter.setOnWordItemClickListener(new DrinkViewHolder.ClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Drink drink = mAdapter.getDrinkList().get(position);
+                launchDetailsActivity(drink);
+            }
+        });
+
+    }
+
+    /**
+     * Fetching the chosen item with click on RecyclerView and getting all necessary information
+     * then sending them to DetailActivity with Extras
+     * @param drink clicked item on RecyclerView according to adapter position
+     */
+    private void launchDetailsActivity(Drink drink) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        int drinkId = drink.getItemId();
+        String drinkName = drink.getItemName();
+        String drinkDescription = drink.getItemDescription();
+        intent.putExtra(EXTRA_ITEM_ID, drinkId);
+        startActivity(intent);
     }
 
 }

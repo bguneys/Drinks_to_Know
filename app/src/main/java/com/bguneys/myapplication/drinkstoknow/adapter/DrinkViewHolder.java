@@ -22,6 +22,13 @@ public class DrinkViewHolder extends RecyclerView.ViewHolder {
         mDrinkNameTextView = itemView.findViewById(R.id.itemName_textView);
         mDrinkDescriptionTextView = itemView.findViewById(R.id.itemDescription_textView);
         mDrinkImageImageView = itemView.findViewById(R.id.itemImage_ImageView);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrinkRecyclerViewAdapter.clickListener.onItemClick(view, getAdapterPosition());
+            }
+        });
     }
 
     //Binding method to be used inside onBindViewHolder. So all view related code is in ViewHolder.
@@ -29,5 +36,9 @@ public class DrinkViewHolder extends RecyclerView.ViewHolder {
         mDrinkNameTextView.setText(currentDrink.getItemName());
         mDrinkDescriptionTextView.setText(currentDrink.getItemDescription());
         mDrinkImageImageView.setImageResource(currentDrink.getItemImage());
+    }
+
+    public interface ClickListener {
+        void onItemClick(View view, int position);
     }
 }

@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startListActivity(View view) {
-        Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("DRINK_ID", mTempDrinkId);
+        Intent intent = new Intent(this, ListActivity.class);
+        //intent.putExtra("com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID", mTempDrinkId);
         startActivity(intent);
     }
 }

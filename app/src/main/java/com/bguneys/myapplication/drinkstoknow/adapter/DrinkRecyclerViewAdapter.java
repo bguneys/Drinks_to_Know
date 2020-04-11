@@ -18,6 +18,7 @@ public class DrinkRecyclerViewAdapter extends RecyclerView.Adapter<DrinkViewHold
 
     private final LayoutInflater mInflater;
     private List<Drink> mDrinkList;
+    static DrinkViewHolder.ClickListener clickListener;
 
     public DrinkRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -65,5 +66,9 @@ public class DrinkRecyclerViewAdapter extends RecyclerView.Adapter<DrinkViewHold
      */
     public List<Drink> getDrinkList() {
         return mDrinkList;
+    }
+
+    public void setOnWordItemClickListener(DrinkViewHolder.ClickListener clickListener) {
+        DrinkRecyclerViewAdapter.clickListener = clickListener;
     }
 }

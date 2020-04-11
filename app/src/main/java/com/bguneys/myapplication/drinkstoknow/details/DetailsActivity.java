@@ -28,6 +28,8 @@ public class DetailsActivity extends AppCompatActivity {
     TextView mDrinkDescriptionTextView;
     ImageView mDrinkImageView;
 
+    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Getting drink Id from the Intent started from ListActivty
-        int drinkId = getIntent().getIntExtra("DRINK_ID", 0);
+        int drinkId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
 
         mDrinkHeaderTextView = findViewById(R.id.textView_drinkHeader);
         mDrinkDescriptionTextView = findViewById(R.id.textView_drinkDescription);
