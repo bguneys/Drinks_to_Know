@@ -10,4 +10,11 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="notification_preference">notification_preference</string>
+    <string name="info_preference">info_preference</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="notification_channel_name">Daily information</string>
+    <string name="notification_channel_description">Daily information notification</string>
+    <string name="notification_title">New Information!</string>
+    <string name="notification_message">Tap to learn about about %1$s</string>
 </resources>

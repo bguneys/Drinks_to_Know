@@ -9,6 +9,7 @@ import com.bguneys.myapplication.drinkstoknow.adapter.ItemViewHolder;
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Item;
 import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
+import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
 
-    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID";
+    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.list.EXTRA_ITEM_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +85,13 @@ public class ListActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
 
-            case R.id.action_settings:
+            case android.R.id.home:
+                onBackPressed();
+                return true;
 
+            case R.id.action_settings:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 return true;
 
             default:

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        android:id="@+id/notification"
+        android:defaultValue="false"
+        android:key="@string/notification_preference"
+        android:summary="Turn on for daily information"
+        android:title="Daily Notification"
+        app:iconSpaceReserved="false" />
+    <Preference
+        android:id="@+id/info"
+        android:key="@string/info_preference"
+        android:summary="Information about the application"
+        android:title="About"
+        app:iconSpaceReserved="false" />
+</PreferenceScreen>

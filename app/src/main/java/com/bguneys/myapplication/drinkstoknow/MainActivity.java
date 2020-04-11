@@ -19,6 +19,7 @@ import com.bguneys.myapplication.drinkstoknow.database.Item;
 import com.bguneys.myapplication.drinkstoknow.list.ListActivity;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModel;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModelFactory;
+import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,13 +81,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch(item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
             case R.id.action_list:
-                Intent intent = new Intent(this, ListActivity.class);
-                startActivity(intent);
+                Intent listIntent = new Intent(this, ListActivity.class);
+                startActivity(listIntent);
                 return true;
 
             case R.id.action_settings:
-
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 return true;
 
             default:

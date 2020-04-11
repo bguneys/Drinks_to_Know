@@ -1,5 +1,6 @@
 package com.bguneys.myapplication.drinkstoknow.details;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bguneys.myapplication.drinkstoknow.R;
+import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -73,8 +75,13 @@ public class DetailsActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
 
-            case R.id.action_settings:
+            case android.R.id.home:
+                onBackPressed();
+                return true;
 
+            case R.id.action_settings:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 return true;
 
             default:
