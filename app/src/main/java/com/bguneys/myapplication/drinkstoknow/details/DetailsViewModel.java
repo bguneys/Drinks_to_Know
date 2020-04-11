@@ -1,7 +1,7 @@
 package com.bguneys.myapplication.drinkstoknow.details;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
-import com.bguneys.myapplication.drinkstoknow.database.Drink;
+import com.bguneys.myapplication.drinkstoknow.database.Item;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,15 +9,15 @@ import androidx.lifecycle.ViewModel;
 public class DetailsViewModel extends ViewModel {
 
     private final DataRepository mRepository;
-    private LiveData<Drink> mLiveDataDrink;
+    private LiveData<Item> mLiveDataItem;
 
-    public DetailsViewModel(DataRepository dataRepository, int drinkId) {
+    public DetailsViewModel(DataRepository dataRepository, int itemId) {
         mRepository = dataRepository;
-        mLiveDataDrink = mRepository.getDrinkWithId(drinkId);
+        mLiveDataItem = mRepository.getItemWithId(itemId);
     }
 
-    public LiveData<Drink> getDrink() {
-        return mLiveDataDrink;
+    public LiveData<Item> getItem() {
+        return mLiveDataItem;
     }
 
 }

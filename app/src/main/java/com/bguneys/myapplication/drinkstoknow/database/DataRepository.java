@@ -1,13 +1,10 @@
 package com.bguneys.myapplication.drinkstoknow.database;
 
-import android.app.Application;
 import android.content.Context;
 
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
@@ -15,8 +12,8 @@ import androidx.lifecycle.LiveData;
 public class DataRepository {
 
     //fields
-    private DrinkDao mDrinkDao;
-    private LiveData<List<Drink>> mDrinkList;
+    private ItemDao mItemDao;
+    private LiveData<List<Item>> mItemList;
     private static volatile DataRepository sInstance = null;
 
     public static DataRepository getInstance(Context context) {
@@ -33,43 +30,43 @@ public class DataRepository {
     }
 
     private DataRepository(Context context) {
-        DrinkDatabase wordDatabase = DrinkDatabase.getInstance(context);
-        mDrinkDao = wordDatabase.getDrinkDao();
-        mDrinkList = mDrinkDao.getDrinkList();
+        ItemDatabase itemDatabase = ItemDatabase.getInstance(context);
+        mItemDao = itemDatabase.getItemDao();
+        mItemList = mItemDao.getItemList();
     }
 
-    public LiveData<List<Drink>> getDrinkList() {
-        return mDrinkList;
+    public LiveData<List<Item>> getItemList() {
+        return mItemList;
     }
 
-    public LiveData<Drink> getDrinkWithId(int id) {
-        return mDrinkDao.getDrinkWithId(id);
+    public LiveData<Item> getItemWithId(int id) {
+        return mItemDao.getItemWithId(id);
     }
 
-    public void insert (final Drink drink) {
-        DrinkDatabase.databaseExecutor.execute(new Runnable() {
+    public void insert (final Item item) {
+        ItemDatabase.databaseExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                mDrinkDao.insert(drink);
+                mItemDao.insert(item);
             }
         });
     }
 
-    public void delete (final Drink drink) {
-        DrinkDatabase.databaseExecutor.execute(new Runnable() {
+    public void delete (final Item item) {
+        ItemDatabase.databaseExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                mDrinkDao.delete(drink);
+                mItemDao.delete(item);
             }
         });
     }
 
     @Nullable
-    public Drink getRandomDrink() {
+    public Item getRandomItem() {
         try {
-            return (Drink) DrinkDatabase.databaseExecutor.submit(new Callable() {
+            return (Item) ItemDatabase.databaseExecutor.submit(new Callable() {
                 public final Object call() {
-                    return mDrinkDao.getRandomDrink();
+                    return mItemDao.getRandomItem();
                 }
             }).get();
 

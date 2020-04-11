@@ -7,7 +7,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = Constants.TABLE_NAME)
-public class Drink {
+public class Item {
 
     @ColumnInfo(name = Constants.COLUMN_ITEM_ID)
     @PrimaryKey(autoGenerate = true)
@@ -27,14 +27,14 @@ public class Drink {
 
     //Constructors
     @Ignore
-    public Drink(@NonNull String name, @NonNull String description, int image, boolean favourite) {
+    public Item(@NonNull String name, @NonNull String description, int image, boolean favourite) {
         this.mItemName = name;
         this.mItemDescription = description;
         this.mItemImage = image;
         this.mItemFavourite = favourite;
     }
 
-    public Drink(int mItemId, @NonNull String mItemName, @NonNull String mItemDescription, int mItemImage, boolean mItemFavourite) {
+    public Item(int mItemId, @NonNull String mItemName, @NonNull String mItemDescription, int mItemImage, boolean mItemFavourite) {
         this.mItemId = mItemId;
         this.mItemName = mItemName;
         this.mItemDescription = mItemDescription;

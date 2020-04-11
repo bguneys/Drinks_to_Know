@@ -2,7 +2,6 @@ package com.bguneys.myapplication.drinkstoknow.database;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 
@@ -22,12 +21,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Drink.class}, version = 1, exportSchema = false)
-public abstract class DrinkDatabase extends RoomDatabase {
+@Database(entities = {Item.class}, version = 1, exportSchema = false)
+public abstract class ItemDatabase extends RoomDatabase {
 
-    private static volatile DrinkDatabase sInstance = null;
+    private static volatile ItemDatabase sInstance = null;
 
-    public abstract DrinkDao getDrinkDao();
+    public abstract ItemDao getItemDao();
 
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -35,12 +34,12 @@ public abstract class DrinkDatabase extends RoomDatabase {
     private static WeakReference<Context> sContext;
 
     @NonNull
-    public static synchronized DrinkDatabase getInstance(Context context) {
+    public static synchronized ItemDatabase getInstance(Context context) {
         if (sInstance == null) {
-            synchronized (DrinkDatabase.class) {
+            synchronized (ItemDatabase.class) {
                 if (sInstance == null) {
-                    sInstance = (DrinkDatabase) Room.databaseBuilder(context.getApplicationContext(),
-                            DrinkDatabase.class, Constants.DATABASE_NAME)
+                    sInstance = (ItemDatabase) Room.databaseBuilder(context.getApplicationContext(),
+                            ItemDatabase.class, Constants.DATABASE_NAME)
                             .fallbackToDestructiveMigration()
                             .addCallback(roomDataBaseCallBack)
                             .build();
@@ -61,10 +60,10 @@ public abstract class DrinkDatabase extends RoomDatabase {
             databaseExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    DrinkDao dao = getInstance(sContext.get()).getDrinkDao();
+                    ItemDao dao = getInstance(sContext.get()).getItemDao();
                     //dao.deleteAll();
 
-                    if (dao.getAnyDrink().length < 1) {
+                    if (dao.getAnyItem().length < 1) {
                        parseJson(sContext.get());
                     }
 
@@ -79,7 +78,7 @@ public abstract class DrinkDatabase extends RoomDatabase {
      * @param context
      */
     private static void parseJson(Context context) {
-        DrinkDao dao = getInstance(context).getDrinkDao();
+        ItemDao dao = getInstance(context).getItemDao();
         String json = "";
 
         try {
@@ -105,8 +104,8 @@ public abstract class DrinkDatabase extends RoomDatabase {
                 int drinkImage = context.getResources().getIdentifier(jsonDrink.getString("item_image"), "drawable", context.getPackageName());
                 boolean drinkFavourite = jsonDrink.getBoolean("item_favourite");
 
-                Drink newDrink = new Drink(drinkName, drinkDescription, drinkImage, drinkFavourite);
-                dao.insert(newDrink);
+                Item newItem = new Item(drinkName, drinkDescription, drinkImage, drinkFavourite);
+                dao.insert(newItem);
             }
         }
         catch (Exception e) {

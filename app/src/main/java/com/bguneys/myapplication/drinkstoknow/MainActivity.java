@@ -11,8 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
-import com.bguneys.myapplication.drinkstoknow.database.Drink;
-import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
+import com.bguneys.myapplication.drinkstoknow.database.Item;
 import com.bguneys.myapplication.drinkstoknow.list.ListActivity;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModel;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModelFactory;
@@ -23,37 +22,37 @@ public class MainActivity extends AppCompatActivity {
     MainViewModelFactory mMainViewModelFactory;
     DataRepository mRepository;
 
-    TextView mDrinkHeaderTextView;
-    TextView mDrinkDescriptionTextView;
-    ImageView mDrinkImageView;
+    TextView mItemHeaderTextView;
+    TextView mItemDescriptionTextView;
+    ImageView mItemImageView;
 
-    int mTempDrinkId;
+    int mTempItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDrinkHeaderTextView = findViewById(R.id.textView_drinkHeader);
-        mDrinkDescriptionTextView = findViewById(R.id.textView_drinkDescription);
-        mDrinkImageView = findViewById(R.id.imageView_drinkImage);
+        mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
+        mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
+        mItemImageView = findViewById(R.id.imageView_itemImage);
 
         mRepository = DataRepository.getInstance(this);
 
         mMainViewModelFactory = new MainViewModelFactory(mRepository);
         mMainViewModel = new ViewModelProvider(this, mMainViewModelFactory).get(MainViewModel.class);
 
-        mMainViewModel.getRandomDrink();
+        mMainViewModel.getRandomItem();
 
-        mMainViewModel.getDrink().observe(this, new Observer<Drink>() {
+        mMainViewModel.getItem().observe(this, new Observer<Item>() {
             @Override
-            public void onChanged(Drink drink) {
+            public void onChanged(Item item) {
 
-                mDrinkHeaderTextView.setText(drink.getItemName());
-                mDrinkDescriptionTextView.setText(drink.getItemDescription());
-                mDrinkImageView.setImageResource(drink.getItemImage());
+                mItemHeaderTextView.setText(item.getItemName());
+                mItemDescriptionTextView.setText(item.getItemDescription());
+                mItemImageView.setImageResource(item.getItemImage());
 
-                mTempDrinkId = drink.getItemId();
+                mTempItemId = item.getItemId();
 
             }
         });

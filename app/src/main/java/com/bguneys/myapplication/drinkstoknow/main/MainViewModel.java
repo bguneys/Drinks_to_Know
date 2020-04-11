@@ -1,7 +1,7 @@
 package com.bguneys.myapplication.drinkstoknow.main;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
-import com.bguneys.myapplication.drinkstoknow.database.Drink;
+import com.bguneys.myapplication.drinkstoknow.database.Item;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,19 +10,19 @@ import androidx.lifecycle.ViewModel;
 public class MainViewModel extends ViewModel {
 
     private final DataRepository mRepository;
-    private final MutableLiveData<Drink> mDrink = new MutableLiveData<>();
-    private LiveData<Drink> mLiveDataDrink;
+    private final MutableLiveData<Item> mDrink = new MutableLiveData<>();
+    private LiveData<Item> mLiveDataDrink;
 
     public MainViewModel(DataRepository dataRepository) {
         mRepository = dataRepository;
     }
 
-    public void getRandomDrink() {
-        mDrink.setValue(mRepository.getRandomDrink());
+    public void getRandomItem() {
+        mDrink.setValue(mRepository.getRandomItem());
         mLiveDataDrink = mDrink;
     }
 
-    public LiveData<Drink> getDrink() {
+    public LiveData<Item> getItem() {
         return mLiveDataDrink;
     }
 }

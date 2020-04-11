@@ -3,16 +3,13 @@ package com.bguneys.myapplication.drinkstoknow.details;
 import android.os.Bundle;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
-import com.bguneys.myapplication.drinkstoknow.database.Drink;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.bguneys.myapplication.drinkstoknow.database.Item;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,9 +21,9 @@ public class DetailsActivity extends AppCompatActivity {
     DetailsViewModelFactory mDetailsViewModelFactory;
     DataRepository mRepository;
 
-    TextView mDrinkHeaderTextView;
-    TextView mDrinkDescriptionTextView;
-    ImageView mDrinkImageView;
+    TextView mItemHeaderTextView;
+    TextView mItemDescriptionTextView;
+    ImageView mItemImageView;
 
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID";
 
@@ -38,23 +35,23 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Getting drink Id from the Intent started from ListActivty
-        int drinkId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
+        int itemId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
 
-        mDrinkHeaderTextView = findViewById(R.id.textView_drinkHeader);
-        mDrinkDescriptionTextView = findViewById(R.id.textView_drinkDescription);
-        mDrinkImageView = findViewById(R.id.imageView_drinkImage);
+        mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
+        mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
+        mItemImageView = findViewById(R.id.imageView_itemImage);
 
         mRepository = DataRepository.getInstance(this);
 
-        mDetailsViewModelFactory = new DetailsViewModelFactory(mRepository, drinkId);
+        mDetailsViewModelFactory = new DetailsViewModelFactory(mRepository, itemId);
         mDetailsViewModel = new ViewModelProvider(this, mDetailsViewModelFactory).get(DetailsViewModel.class);
 
-        mDetailsViewModel.getDrink().observe(this, new Observer<Drink>() {
+        mDetailsViewModel.getItem().observe(this, new Observer<Item>() {
             @Override
-            public void onChanged(Drink drink) {
-                mDrinkHeaderTextView.setText(drink.getItemName());
-                mDrinkDescriptionTextView.setText(drink.getItemDescription());
-                mDrinkImageView.setImageResource(drink.getItemImage());
+            public void onChanged(Item item) {
+                mItemHeaderTextView.setText(item.getItemName());
+                mItemDescriptionTextView.setText(item.getItemDescription());
+                mItemImageView.setImageResource(item.getItemImage());
             }
         });
 

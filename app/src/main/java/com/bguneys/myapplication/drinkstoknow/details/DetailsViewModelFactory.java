@@ -9,18 +9,18 @@ import androidx.lifecycle.ViewModelProvider;
 public class DetailsViewModelFactory implements ViewModelProvider.Factory {
 
     private final DataRepository mRepository;
-    private final int mDrinkId;
+    private final int mItemId;
 
-    public DetailsViewModelFactory(DataRepository dataRepository, int drinkId) {
+    public DetailsViewModelFactory(DataRepository dataRepository, int itemId) {
         mRepository = dataRepository;
-        mDrinkId = drinkId;
+        mItemId = itemId;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(DetailsViewModel.class)) {
-            return (T) new DetailsViewModel(mRepository, mDrinkId);
+            return (T) new DetailsViewModel(mRepository, mItemId);
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }
