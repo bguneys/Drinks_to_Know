@@ -5,11 +5,14 @@ import android.os.Bundle;
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Item;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,8 +34,10 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Getting drink Id from the Intent started from ListActivty
         int itemId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
@@ -55,6 +60,28 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()) {
+
+            case R.id.action_settings:
+
+                return true;
+
+            default:
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

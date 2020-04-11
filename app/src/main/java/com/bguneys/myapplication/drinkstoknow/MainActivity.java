@@ -1,11 +1,15 @@
 package com.bguneys.myapplication.drinkstoknow;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
@@ -62,5 +68,31 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListActivity.class);
         //intent.putExtra("com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID", mTempDrinkId);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.action_list:
+                Intent intent = new Intent(this, ListActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_settings:
+
+                return true;
+
+            default:
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

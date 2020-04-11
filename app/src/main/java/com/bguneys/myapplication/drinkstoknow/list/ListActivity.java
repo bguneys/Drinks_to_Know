@@ -10,6 +10,7 @@ import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Item;
 import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -17,6 +18,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.List;
@@ -35,8 +38,10 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mRepository = DataRepository.getInstance(this);
 
@@ -66,6 +71,28 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.list_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()) {
+
+            case R.id.action_settings:
+
+                return true;
+
+            default:
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**
