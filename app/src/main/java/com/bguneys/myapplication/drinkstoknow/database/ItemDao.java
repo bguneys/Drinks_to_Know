@@ -7,6 +7,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface ItemDao {
@@ -31,4 +32,7 @@ public interface ItemDao {
 
     @Query("SELECT * FROM Items_table WHERE item_id LIKE:itemId")
     LiveData<Item> getItemWithId(int itemId);
+
+    @Update
+    void updateFavorite(Item item);
 }

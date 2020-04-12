@@ -75,7 +75,7 @@ public class Item {
         this.mItemImage = mItemImage;
     }
 
-    public Boolean getItemFavourite() {
+    public Boolean isItemFavourite() {
         return mItemFavourite;
     }
 

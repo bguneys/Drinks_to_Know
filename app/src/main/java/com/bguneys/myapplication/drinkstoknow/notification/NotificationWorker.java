@@ -21,7 +21,7 @@ public class NotificationWorker extends Worker {
 
     private static final String CHANNEL_ID = "notify-item";
     private static final int NOTIFICATION_ID = 1;
-    public static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.notification.EXTRA_ITEM_ID";
+    public static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
     public NotificationWorker(@NonNull Context context, @NonNull WorkerParameters params) {
         super(context, params);

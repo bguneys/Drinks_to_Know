@@ -20,5 +20,9 @@ public class DetailsViewModel extends ViewModel {
         return mLiveDataItem;
     }
 
+    public void setFavorite(Item item) {
+        mRepository.updateFavorite(item);
+    }
+
 }
 

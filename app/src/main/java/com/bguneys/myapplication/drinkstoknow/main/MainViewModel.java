@@ -25,4 +25,8 @@ public class MainViewModel extends ViewModel {
     public LiveData<Item> getItem() {
         return mLiveDataDrink;
     }
+
+    public void setFavorite(Item item) {
+        mRepository.updateFavorite(item);
+    }
 }

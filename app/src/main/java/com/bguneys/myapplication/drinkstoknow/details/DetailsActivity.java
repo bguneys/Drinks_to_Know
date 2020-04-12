@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
@@ -30,7 +31,9 @@ public class DetailsActivity extends AppCompatActivity {
     TextView mItemDescriptionTextView;
     ImageView mItemImageView;
 
-    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID";
+    private Item mCurrentItem;
+
+    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +59,11 @@ public class DetailsActivity extends AppCompatActivity {
         mDetailsViewModel.getItem().observe(this, new Observer<Item>() {
             @Override
             public void onChanged(Item item) {
-                mItemHeaderTextView.setText(item.getItemName());
-                mItemDescriptionTextView.setText(item.getItemDescription());
-                mItemImageView.setImageResource(item.getItemImage());
+                mCurrentItem = item;
+
+                mItemHeaderTextView.setText(mCurrentItem.getItemName());
+                mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
+                mItemImageView.setImageResource(mCurrentItem.getItemImage());
             }
         });
 
@@ -67,6 +72,13 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.details_menu, menu);
+
+        if (mCurrentItem.isItemFavourite()) {
+            menu.getItem(0).setIcon(R.drawable.ic_action_heart_full);
+        } else {
+            menu.getItem(0).setIcon(R.drawable.ic_action_heart_empty);
+        }
+
         return true;
     }
 
@@ -79,10 +91,19 @@ public class DetailsActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
 
-            case R.id.action_settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
-                return true;
+            case R.id.action_favourite:
+                if (mCurrentItem.isItemFavourite()) {
+                    mCurrentItem.setItemFavourite(false);
+                    Toast.makeText(DetailsActivity.this, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                    item.setIcon(R.drawable.ic_action_heart_empty);
+
+                } else {
+                    mCurrentItem.setItemFavourite(true);
+                    Toast.makeText(DetailsActivity.this, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                    item.setIcon(R.drawable.ic_action_heart_full);
+                }
+
+                mDetailsViewModel.setFavorite(mCurrentItem);
 
             default:
 

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Item;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     TextView mItemHeaderTextView;
     TextView mItemDescriptionTextView;
     ImageView mItemImageView;
+    ImageView mFavouriteImageView;
+
+    private Item mCurrentItem;
 
     int mTempItemId;
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
         mItemImageView = findViewById(R.id.imageView_itemImage);
+        mFavouriteImageView = findViewById(R.id.imageView_favourite);
 
         mRepository = DataRepository.getInstance(this);
 
@@ -54,21 +59,43 @@ public class MainActivity extends AppCompatActivity {
         mMainViewModel.getItem().observe(this, new Observer<Item>() {
             @Override
             public void onChanged(Item item) {
+                mCurrentItem = item;
 
-                mItemHeaderTextView.setText(item.getItemName());
-                mItemDescriptionTextView.setText(item.getItemDescription());
-                mItemImageView.setImageResource(item.getItemImage());
+                mItemHeaderTextView.setText(mCurrentItem.getItemName());
+                mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
+                mItemImageView.setImageResource(mCurrentItem.getItemImage());
 
-                mTempItemId = item.getItemId();
+                mTempItemId = mCurrentItem.getItemId();
+
+                //If the current item is favourite then image changes
+                if (mCurrentItem.isItemFavourite()) {
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
+                } else {
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
+                }
 
             }
         });
-    }
 
-    public void startListActivity(View view) {
-        Intent intent = new Intent(this, ListActivity.class);
-        //intent.putExtra("com.bguneys.myapplication.drinkstoknow.list.EXTRA_ITEM_ID", mTempDrinkId);
-        startActivity(intent);
+        //Clicking favourite button makes the current item favourite and changes the image
+        mFavouriteImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mCurrentItem.isItemFavourite()) {
+                    mCurrentItem.setItemFavourite(false);
+                    Toast.makeText(MainActivity.this, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
+
+                } else {
+                    mCurrentItem.setItemFavourite(true);
+                    Toast.makeText(MainActivity.this, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
+                }
+
+                mMainViewModel.setFavorite(mCurrentItem);
+            }
+        });
+
     }
 
     @Override
@@ -81,10 +108,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch(item.getItemId()) {
-
-            case android.R.id.home:
-                onBackPressed();
-                return true;
 
             case R.id.action_list:
                 Intent listIntent = new Intent(this, ListActivity.class);

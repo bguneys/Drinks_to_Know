@@ -5,9 +5,10 @@
     tools:context="com.example.android.roomwordssample.MainActivity">
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="200"
-        android:title="Settings"
-        app:showAsAction="never" />
+        android:id="@+id/action_favourite"
+        android:orderInCategory="100"
+        android:title="Favourite"
+        android:icon="@drawable/ic_action_heart_empty"
+        app:showAsAction="ifRoom" />
 
 </menu>

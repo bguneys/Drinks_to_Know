@@ -75,4 +75,13 @@ public class DataRepository {
             return null;
         }
     }
+
+    public void updateFavorite(final Item item) {
+        ItemDatabase.databaseExecutor.execute(new Runnable() {
+
+            public final void run() {
+                mItemDao.updateFavorite(item);
+            }
+        });
+    }
 }

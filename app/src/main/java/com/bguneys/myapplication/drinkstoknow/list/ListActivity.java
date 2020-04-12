@@ -33,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
 
-    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.list.EXTRA_ITEM_ID";
+    static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
