@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     public TextView mItemNameTextView;
-    public TextView mItemDescriptionTextView;
+    public TextView mItemSummaryTextView;
     public ImageView mItemImageImageView;
 
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
 
         mItemNameTextView = itemView.findViewById(R.id.itemName_textView);
-        mItemDescriptionTextView = itemView.findViewById(R.id.itemDescription_textView);
+        mItemSummaryTextView = itemView.findViewById(R.id.itemSummary_textView);
         mItemImageImageView = itemView.findViewById(R.id.itemImage_ImageView);
 
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +34,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     //Binding method to be used inside onBindViewHolder. So all view related code is in ViewHolder.
     public void bind (Item currentItem) {
         mItemNameTextView.setText(currentItem.getItemName());
-        mItemDescriptionTextView.setText(currentItem.getItemDescription());
+        mItemSummaryTextView.setText(currentItem.getItemSummary());
         mItemImageImageView.setImageResource(currentItem.getItemImage());
     }
 

@@ -97,14 +97,15 @@ public abstract class ItemDatabase extends RoomDatabase {
             JSONArray drinks = jsonObject.getJSONArray("drinks");
 
             for (int i = 0; i < drinks.length(); i++) {
-                JSONObject jsonDrink = drinks.getJSONObject(i);
+                JSONObject jsonItem = drinks.getJSONObject(i);
 
-                String drinkName = jsonDrink.getString("item_name");
-                String drinkDescription = jsonDrink.getString("item_description");
-                int itemImage = context.getResources().getIdentifier(jsonDrink.getString("item_image"), "drawable", context.getPackageName());
-                boolean drinkFavourite = jsonDrink.getBoolean("item_favourite");
+                String itemName = jsonItem.getString("item_name");
+                String itemSummary = jsonItem.getString("item_summary");
+                String itemDescription = jsonItem.getString("item_description");
+                int itemImage = context.getResources().getIdentifier(jsonItem.getString("item_image"), "drawable", context.getPackageName());
+                boolean drinkFavourite = jsonItem.getBoolean("item_favourite");
 
-                Item newItem = new Item(drinkName, drinkDescription, itemImage, drinkFavourite);
+                Item newItem = new Item(itemName, itemSummary, itemDescription, itemImage, drinkFavourite);
                 dao.insert(newItem);
             }
         }

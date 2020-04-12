@@ -16,6 +16,9 @@ public class Item {
     @ColumnInfo(name = Constants.COLUMN_ITEM_NAME)
     private String mItemName;
 
+    @ColumnInfo(name = Constants.COLUMN_ITEM_SUMMARY)
+    private String mItemSummary;
+
     @ColumnInfo(name = Constants.COLUMN_ITEM_DESCRIPTION)
     private String mItemDescription;
 
@@ -27,16 +30,18 @@ public class Item {
 
     //Constructors
     @Ignore
-    public Item(@NonNull String name, @NonNull String description, int image, boolean favourite) {
+    public Item(@NonNull String name, @NonNull String summary, @NonNull String description, int image, boolean favourite) {
         this.mItemName = name;
+        this.mItemSummary = summary;
         this.mItemDescription = description;
         this.mItemImage = image;
         this.mItemFavourite = favourite;
     }
 
-    public Item(int mItemId, @NonNull String mItemName, @NonNull String mItemDescription, int mItemImage, boolean mItemFavourite) {
+    public Item(int mItemId, @NonNull String mItemName, @NonNull String mItemSummary, @NonNull String mItemDescription, int mItemImage, boolean mItemFavourite) {
         this.mItemId = mItemId;
         this.mItemName = mItemName;
+        this.mItemSummary = mItemSummary;
         this.mItemDescription = mItemDescription;
         this.mItemImage = mItemImage;
         this.mItemFavourite = mItemFavourite;
@@ -57,6 +62,14 @@ public class Item {
 
     public void setItemName(String mItemName) {
         this.mItemName = mItemName;
+    }
+
+    public String getItemSummary() {
+        return mItemSummary;
+    }
+
+    public void setItemSummary(String mItemSummary) {
+        this.mItemSummary = mItemSummary;
     }
 
     public String getItemDescription() {
