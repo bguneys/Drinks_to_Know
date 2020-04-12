@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -27,11 +28,12 @@ public class DetailsActivity extends AppCompatActivity {
     DetailsViewModelFactory mDetailsViewModelFactory;
     DataRepository mRepository;
 
-    TextView mItemHeaderTextView;
     TextView mItemDescriptionTextView;
     ImageView mItemImageView;
 
     private Item mCurrentItem;
+
+    private CollapsingToolbarLayout mCollapsingToolbar;
 
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
@@ -44,10 +46,10 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Getting drink Id from the Intent started from ListActivty
+        //Getting item Id from the Intent started from ListActivty or notification
         int itemId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
 
-        mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
+        mCollapsingToolbar = findViewById(R.id.collapsing_toolbar);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
         mItemImageView = findViewById(R.id.imageView_itemImage);
 
@@ -61,7 +63,8 @@ public class DetailsActivity extends AppCompatActivity {
             public void onChanged(Item item) {
                 mCurrentItem = item;
 
-                mItemHeaderTextView.setText(mCurrentItem.getItemName());
+                mCollapsingToolbar.setTitle(mCurrentItem.getItemName());
+
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
                 mItemImageView.setImageResource(mCurrentItem.getItemImage());
             }
