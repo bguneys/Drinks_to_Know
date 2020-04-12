@@ -15,6 +15,9 @@ public interface ItemDao {
     @Query("SELECT * FROM items_table ORDER BY item_name COLLATE NOCASE ASC") //capital letter no case-sensitive order
     LiveData<List<Item>> getItemList();
 
+    @Query("SELECT * FROM items_table WHERE item_favourite = 1 ORDER BY item_name COLLATE NOCASE ASC") //favourite item list
+    LiveData<List<Item>> getFavouriteItemList();
+
     @Insert
     void insert(Item item);
 

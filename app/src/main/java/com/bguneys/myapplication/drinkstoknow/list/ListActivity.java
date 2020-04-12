@@ -32,6 +32,7 @@ public class ListActivity extends AppCompatActivity {
     ListViewModel mListViewModel;
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
+    boolean isFavouriteListChosen; //used to change the toolbar icon accordingly
 
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
@@ -53,13 +54,30 @@ public class ListActivity extends AppCompatActivity {
 
         mAdapter = new ItemRecyclerViewAdapter(this);
 
-        mListViewModel.getItemList().observe(this, new Observer<List<Item>>() {
+        mListViewModel.isListFavourite().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(List<Item> items) {
-                mAdapter.populateList(items);
+            public void onChanged(Boolean aBoolean) {
+
+                if (aBoolean) {
+                    mListViewModel.getFavouriteItemList().observe(ListActivity.this, new Observer<List<Item>>() {
+                        @Override
+                        public void onChanged(List<Item> items) {
+                            mAdapter.populateList(items);
+                            isFavouriteListChosen = true;
+                        }
+                    });
+
+                } else {
+                    mListViewModel.getItemList().observe(ListActivity.this, new Observer<List<Item>>() {
+                        @Override
+                        public void onChanged(List<Item> items) {
+                            mAdapter.populateList(items);
+                            isFavouriteListChosen = false;
+                        }
+                    });
+                }
             }
         });
-
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -87,6 +105,21 @@ public class ListActivity extends AppCompatActivity {
 
             case android.R.id.home:
                 onBackPressed();
+                return true;
+
+            case R.id.action_favourite:
+
+                //Change the toolbar icon according to the list type
+                if(isFavouriteListChosen) {
+                    item.setIcon(R.drawable.ic_action_heart_full);
+                    getSupportActionBar().setTitle("List");
+                } else {
+                    item.setIcon(R.drawable.ic_action_list);
+                    getSupportActionBar().setTitle("Favourites");
+                }
+
+                mListViewModel.toggleFavouriteList();
+
                 return true;
 
             case R.id.action_settings:

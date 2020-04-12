@@ -5,6 +5,13 @@
     tools:context="com.example.android.roomwordssample.MainActivity">
 
     <item
+        android:id="@+id/action_favourite"
+        android:orderInCategory="100"
+        android:title="Favourites"
+        android:icon="@drawable/ic_action_heart_full"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="200"
         android:title="Settings"

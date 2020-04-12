@@ -14,6 +14,7 @@ public class DataRepository {
     //fields
     private ItemDao mItemDao;
     private LiveData<List<Item>> mItemList;
+    private LiveData<List<Item>> mFavouriteItemList;
     private static volatile DataRepository sInstance = null;
 
     public static DataRepository getInstance(Context context) {
@@ -37,6 +38,11 @@ public class DataRepository {
 
     public LiveData<List<Item>> getItemList() {
         return mItemList;
+    }
+
+    public LiveData<List<Item>> getFavouriteItemList() {
+        mFavouriteItemList = mItemDao.getFavouriteItemList();
+        return mFavouriteItemList;
     }
 
     public LiveData<Item> getItemWithId(int id) {
