@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -28,12 +29,13 @@ public class DetailsActivity extends AppCompatActivity {
     DetailsViewModelFactory mDetailsViewModelFactory;
     DataRepository mRepository;
 
+    TextView mItemNameTextView;
     TextView mItemDescriptionTextView;
     ImageView mItemImageView;
 
     private Item mCurrentItem;
 
-    private CollapsingToolbarLayout mCollapsingToolbar;
+    //private CollapsingToolbarLayout mCollapsingToolbar;
 
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
@@ -45,11 +47,13 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //Getting item Id from the Intent started from ListActivty or notification
         int itemId = getIntent().getIntExtra(EXTRA_ITEM_ID, 0);
 
-        mCollapsingToolbar = findViewById(R.id.collapsing_toolbar);
+        //mCollapsingToolbar = findViewById(R.id.collapsing_toolbar);
+        mItemNameTextView = findViewById(R.id.textView_itemName);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
         mItemImageView = findViewById(R.id.imageView_itemImage);
 
@@ -62,11 +66,10 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onChanged(Item item) {
                 mCurrentItem = item;
-
-                mCollapsingToolbar.setTitle(mCurrentItem.getItemName());
-
+                mItemNameTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
-                mItemImageView.setImageResource(mCurrentItem.getItemImage());
+                //mItemImageView.setImageResource(mCurrentItem.getItemImage());
+                Glide.with(DetailsActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
             }
         });
 

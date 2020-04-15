@@ -30,9 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_scrollFlags="scroll"
-                app:layout_collapseMode="none" />
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                app:layout_collapseMode="none"
+                app:layout_scrollFlags="scroll" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -56,5 +57,11 @@
             android:layout_height="match_parent" />
 
     </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

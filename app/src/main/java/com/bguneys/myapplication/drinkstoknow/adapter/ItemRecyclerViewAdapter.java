@@ -18,9 +18,11 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemViewHolder
     private final LayoutInflater mInflater;
     private List<Item> mItemList;
     static ItemViewHolder.ClickListener clickListener;
+    Context mContext;
 
     public ItemRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
 
@@ -36,7 +38,7 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemViewHolder
 
         if (mItemList != null) {
             Item currentWord = mItemList.get(position);
-            holder.bind(currentWord);
+            holder.bind(currentWord, mContext);
         }
 
     }

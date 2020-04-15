@@ -18,7 +18,6 @@
 
         <activity
             android:name=".details.DetailsActivity"
-            android:label="@string/title_activity_details"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".list.ListActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".list.ListActivity"/>

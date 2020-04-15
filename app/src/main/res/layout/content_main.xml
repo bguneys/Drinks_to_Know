@@ -30,10 +30,11 @@
             <ImageView
                 android:id="@+id/imageView_itemImage"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/image_height"
+                android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

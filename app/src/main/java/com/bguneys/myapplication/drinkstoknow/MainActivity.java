@@ -21,6 +21,7 @@ import com.bguneys.myapplication.drinkstoknow.list.ListActivity;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModel;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModelFactory;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
+import com.bumptech.glide.Glide;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 mItemHeaderTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
                 mItemImageView.setImageResource(mCurrentItem.getItemImage());
+                Glide.with(MainActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
 
                 mTempItemId = mCurrentItem.getItemId();
 
