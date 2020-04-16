@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_scrollFlags="scroll"
-        app:srcCompat="@drawable/pic_01_egyptian_pyramids" />
+        tools:srcCompat="@drawable/ic_launcher_background" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
