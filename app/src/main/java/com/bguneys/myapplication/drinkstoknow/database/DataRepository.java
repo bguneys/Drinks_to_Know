@@ -82,6 +82,22 @@ public class DataRepository {
         }
     }
 
+    @Nullable
+    public Item getNextItemWithId(final int id) {
+        try {
+            return (Item) ItemDatabase.databaseExecutor.submit(new Callable() {
+                public final Object call() {
+                    return mItemDao.getNextItemWithId(id);
+                }
+            }).get();
+
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
     public void updateFavorite(final Item item) {
         ItemDatabase.databaseExecutor.execute(new Runnable() {
 

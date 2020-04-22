@@ -29,4 +29,14 @@ public class MainViewModel extends ViewModel {
     public void setFavorite(Item item) {
         mRepository.updateFavorite(item);
     }
+
+    public void showNextItem(int itemId) {
+        mDrink.setValue(mRepository.getItemWithId(itemId).getValue());
+        mLiveDataDrink = mDrink;
+    }
+
+    public void getNextItemWithId(int id) {
+        mDrink.setValue(mRepository.getNextItemWithId(id));
+        mLiveDataDrink = mDrink;
+    }
 }

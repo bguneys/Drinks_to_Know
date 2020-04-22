@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 public class Item {
 
     @ColumnInfo(name = Constants.COLUMN_ITEM_ID)
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     private int mItemId;
 
     @ColumnInfo(name = Constants.COLUMN_ITEM_NAME)
