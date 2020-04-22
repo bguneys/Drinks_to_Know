@@ -12,10 +12,10 @@ import androidx.room.Update;
 @Dao
 public interface ItemDao {
 
-    @Query("SELECT * FROM items_table ORDER BY item_name COLLATE NOCASE ASC") //capital letter no case-sensitive order
+    @Query("SELECT * FROM items_table ORDER BY item_id ASC")
     LiveData<List<Item>> getItemList();
 
-    @Query("SELECT * FROM items_table WHERE item_favourite = 1 ORDER BY item_name COLLATE NOCASE ASC") //favourite item list
+    @Query("SELECT * FROM items_table WHERE item_favourite = 1 ORDER BY item_name COLLATE NOCASE ASC")
     LiveData<List<Item>> getFavouriteItemList();
 
     @Insert

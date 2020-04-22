@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     Button mNextItemButton;
 
     private Item mCurrentItem;
-
-    int mTempItemId;
     int mCurrentItemId;
 
     @Override
@@ -73,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
                 mItemImageView.setImageResource(mCurrentItem.getItemImage());
                 Glide.with(MainActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
-
-                mTempItemId = mCurrentItem.getItemId();
 
                 //If the current item is favourite then image changes
                 if (mCurrentItem.isItemFavourite()) {
