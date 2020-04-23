@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.android.roomwordssample.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/action_filter"
+        android:orderInCategory="100"
+        android:title="Filter"
+        android:icon="@drawable/ic_action_filter"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/action_filter_all"
+                android:title="All"/>
+            <item
+                android:id="@+id/action_filter_algorithms"
+                android:title="Algorithms"/>
+
+            <item
+                android:id="@+id/action_filter_data_structures"
+                android:title="Data Structures"/>
+
+            <item
+                android:id="@+id/action_filter_design_patterns"
+                android:title="Design Patterns"/>
+
+            <item
+                android:id="@+id/action_filter_programming_concepts"
+                android:title="Programming Concepts"/>
+        </menu>
+
+    </item>
 
     <item
         android:id="@+id/action_favourite"
-        android:orderInCategory="100"
+        android:orderInCategory="200"
         android:title="Favourites"
         android:icon="@drawable/ic_action_heart_full"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="200"
+        android:orderInCategory="300"
         android:title="Settings"
         app:showAsAction="never" />
 

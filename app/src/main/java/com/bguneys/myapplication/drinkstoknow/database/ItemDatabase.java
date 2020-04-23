@@ -109,6 +109,7 @@ public abstract class ItemDatabase extends RoomDatabase {
                 String itemSourceTextUrl = jsonItem.getString("item_text_source_url");
                 String itemSourceImage = jsonItem.getString("item_image_source");
                 String itemSourceImageUrl = jsonItem.getString("item_image_source_url");
+                String itemGroup = jsonItem.getString("item_group");
 
                 Item newItem = new Item(itemId,
                         itemName,
@@ -119,7 +120,8 @@ public abstract class ItemDatabase extends RoomDatabase {
                         itemSourceText,
                         itemSourceTextUrl,
                         itemSourceImage,
-                        itemSourceImageUrl);
+                        itemSourceImageUrl,
+                        itemGroup);
 
                 dao.insert(newItem);
             }

@@ -40,6 +40,9 @@ public class Item {
     @ColumnInfo(name = Constants.COLUMN_ITEM_SOURCE_IMAGE_URL)
     private String mItemSourceImageUrl;
 
+    @ColumnInfo(name = Constants.COLUMN_ITEM_GROUP)
+    private String mItemGroup;
+
     //Constructors
     @Ignore
     public Item(@NonNull String name,
@@ -49,7 +52,8 @@ public class Item {
                 String itemSourceText,
                 String itemSourceTextUrl,
                 String itemSourceImage,
-                String itemSourceImageUrl) {
+                String itemSourceImageUrl,
+                String itemGroup) {
 
         this.mItemName = name;
         this.mItemSummary = summary;
@@ -60,6 +64,7 @@ public class Item {
         this.mItemSourceTextUrl = itemSourceTextUrl;
         this.mItemSourceImage = itemSourceImage;
         this.mItemSourceImageUrl = itemSourceImageUrl;
+        this.mItemGroup = itemGroup;
     }
 
     public Item(int mItemId,
@@ -71,7 +76,8 @@ public class Item {
                 String mItemSourceText,
                 String mItemSourceTextUrl,
                 String mItemSourceImage,
-                String mItemSourceImageUrl) {
+                String mItemSourceImageUrl,
+                String mItemGroup) {
 
         this.mItemId = mItemId;
         this.mItemName = mItemName;
@@ -83,6 +89,7 @@ public class Item {
         this.mItemSourceTextUrl = mItemSourceTextUrl;
         this.mItemSourceImage = mItemSourceImage;
         this.mItemSourceImageUrl = mItemSourceImageUrl;
+        this.mItemGroup = mItemGroup;
     }
 
     //Getters & Setters
@@ -164,5 +171,13 @@ public class Item {
 
     public void setItemSourceImageUrl(String mItemSourceImageUrl) {
         this.mItemSourceImageUrl = mItemSourceImageUrl;
+    }
+
+    public String getItemGroup() {
+        return mItemGroup;
+    }
+
+    public void setItemGroup(String mItemGroup) {
+        this.mItemGroup = mItemGroup;
     }
 }

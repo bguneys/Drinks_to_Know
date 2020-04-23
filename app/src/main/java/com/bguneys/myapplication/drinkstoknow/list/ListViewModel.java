@@ -14,7 +14,9 @@ public class ListViewModel extends ViewModel {
     private final DataRepository mRepository;
     private LiveData<List<Item>> mItemList;
     private LiveData<List<Item>> mFavouriteItemList;
+    private LiveData<List<Item>> mItemListByGroup;
     private final MutableLiveData<Boolean> mIsListFavourite = new MutableLiveData<>(false);
+    private MutableLiveData<String> mListFilter = new MutableLiveData<>("%");
 
     public ListViewModel(DataRepository dataRepository) {
         mRepository = dataRepository;
@@ -28,6 +30,11 @@ public class ListViewModel extends ViewModel {
     public LiveData<List<Item>> getFavouriteItemList() {
         mFavouriteItemList = mRepository.getFavouriteItemList();
         return mFavouriteItemList;
+    }
+
+    public LiveData<List<Item>> getItemListByGroup(String group) {
+        mItemListByGroup = mRepository.getItemListByGroup(group);
+        return mItemListByGroup;
     }
 
     public void insert(Item item) {
@@ -45,5 +52,17 @@ public class ListViewModel extends ViewModel {
             mIsListFavourite.setValue(!isFavorite);
         }
     }
+
+    public LiveData<String> getListFilter() {
+        return mListFilter;
+    }
+
+    public void setListFilter(String group) {
+        mListFilter.setValue(group);
+    }
+
+
+
+
 
 }

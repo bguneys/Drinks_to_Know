@@ -1,7 +1,18 @@
 package com.bguneys.myapplication.drinkstoknow.list;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 import com.bguneys.myapplication.drinkstoknow.adapter.ItemRecyclerViewAdapter;
@@ -11,22 +22,9 @@ import com.bguneys.myapplication.drinkstoknow.database.Item;
 import com.bguneys.myapplication.drinkstoknow.details.DetailsActivity;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class FavouriteActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     ItemRecyclerViewAdapter mAdapter;
@@ -39,7 +37,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_favourite);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,19 +49,12 @@ public class ListActivity extends AppCompatActivity {
         mListViewModel = new ViewModelProvider(this, mListViewModelFactory).get(ListViewModel.class);
 
         mRecyclerView = findViewById(R.id.recyclerView);
-
         mAdapter = new ItemRecyclerViewAdapter(this);
 
-        mListViewModel.getListFilter().observe(this, new Observer<String>() {
+        mListViewModel.getFavouriteItemList().observe(this, new Observer<List<Item>>() {
             @Override
-            public void onChanged(String s) {
-
-                mListViewModel.getItemListByGroup(s).observe(ListActivity.this, new Observer<List<Item>>() {
-                    @Override
-                    public void onChanged(List<Item> items) {
-                        mAdapter.populateList(items);
-                    }
-                });
+            public void onChanged(List<Item> items) {
+                mAdapter.populateList(items);
             }
         });
 
@@ -77,12 +68,11 @@ public class ListActivity extends AppCompatActivity {
                 launchDetailsActivity(item);
             }
         });
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.list_menu, menu);
+        getMenuInflater().inflate(R.menu.favourite_menu, menu);
         return true;
     }
 
@@ -91,38 +81,14 @@ public class ListActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
 
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-
-            case R.id.action_favourite:
-                Intent intent = new Intent(this, FavouriteActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.action_filter_all:
-                mListViewModel.setListFilter("%");
-                return true;
-
-            case R.id.action_filter_algorithms:
-                mListViewModel.setListFilter("Algorithm");
-                return true;
-
-            case R.id.action_filter_data_structures:
-                mListViewModel.setListFilter("Data Structure");
-                return true;
-
-            case R.id.action_filter_design_patterns:
-                mListViewModel.setListFilter("Design Pattern");
-                return true;
-
-            case R.id.action_filter_programming_concepts:
-                mListViewModel.setListFilter("Programming Concept");
+            case R.id.action_list:
+                Intent listActivityIntent = new Intent(this, ListActivity.class);
+                startActivity(listActivityIntent);
                 return true;
 
             case R.id.action_settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
+                Intent settingsActivityIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsActivityIntent);
                 return true;
 
             default:
@@ -145,5 +111,4 @@ public class ListActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_ITEM_ID, drinkId);
         startActivity(intent);
     }
-
 }

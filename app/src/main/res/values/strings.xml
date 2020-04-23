@@ -19,6 +19,7 @@
     <string name="notification_message">Tap to learn about %1$s</string>
     <string name="item_text_source">Text: %1$s</string>
     <string name="item_image_source">Image: %1$s</string>
+    <string name="favourites">Favourites</string>
 
 
 </resources>

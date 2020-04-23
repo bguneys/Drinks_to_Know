@@ -11,7 +11,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Binary_search_algorithm",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://simple.wikipedia.org/wiki/File:Binary_search_into_array_-_example.svg"
+      "item_image_source_url":"https://simple.wikipedia.org/wiki/File:Binary_search_into_array_-_example.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -24,8 +25,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Quicksort",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Quicksort-iteration.svg"
-
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Quicksort-iteration.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -38,7 +39,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Insertion_sort",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Insertion-sort.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Insertion-sort.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -51,7 +53,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Selection_sort",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://upload.wikimedia.org/wikipedia/commons/6/67/SelectionSort.jpg"
+      "item_image_source_url":"https://upload.wikimedia.org/wikipedia/commons/6/67/SelectionSort.jpg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -64,7 +67,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Bubble_sort",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:BubbleSort.jpg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:BubbleSort.jpg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -77,7 +81,8 @@
       "item_text_source": "Wikipedia ",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Merge_sort",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg "
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -90,7 +95,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Breadth-first_search",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Breadth-first_tree.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Breadth-first_tree.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -103,7 +109,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Depth-first_search",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Depth-first-tree.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Depth-first-tree.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -116,7 +123,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Heapsort",
       "item_image_source": "Wikimedia ",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Heap_sort_algorithm-phase1.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Heap_sort_algorithm-phase1.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -129,7 +137,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Kruskal's_algorithm",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Kruskal_Algorithm_1.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Kruskal_Algorithm_1.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -142,7 +151,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Dijkstra_algorithm_example_27.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Dijkstra_algorithm_example_27.svg",
+      "item_group": "Algorithm"
     },
 
     {
@@ -155,7 +165,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Stack_(abstract_data_type)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Lifo_stack.png"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Lifo_stack.png",
+      "item_group": "Data Structure"
     },
 
     {
@@ -168,7 +179,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Queue_(abstract_data_type)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Data_Queue.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Data_Queue.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -181,7 +193,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Graph_(abstract_data_type)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Directed.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Directed.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -194,7 +207,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Heap_(data_structure)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Max-Heap.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Max-Heap.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -207,7 +221,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Linked_list",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Singly-linked-list.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Singly-linked-list.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -220,7 +235,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Hash_table",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Hash_table_3_1_1_0_1_0_0_SP.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Hash_table_3_1_1_0_1_0_0_SP.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -233,7 +249,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Tree_(data_structure)",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Tree_(computer_science).svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Tree_(computer_science).svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -246,7 +263,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Associative_array",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/Associative_array"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/Associative_array",
+      "item_group": "Data Structure"
     },
 
     {
@@ -259,7 +277,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Array_data_structure",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Array_of_array_storage.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Array_of_array_storage.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -272,7 +291,8 @@
       "item_text_source": "Wikiuniversity",
       "item_text_source_url":"https://en.wikiversity.org/wiki/Data_Structures_and_Algorithms/Arrays,_Lists_and_Vectors",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Array_of_array_storage.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Array_of_array_storage.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -285,7 +305,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Dynamic_array",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Dynamic_array.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Dynamic_array.svg",
+      "item_group": "Data Structure"
     },
 
     {
@@ -298,7 +319,8 @@
       "item_text_source": "Computer Hope",
       "item_text_source_url":"https://www.computerhope.com/jargon/t/tuple.htm",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Data Structure"
     },
 
     {
@@ -311,7 +333,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Set_(abstract_data_type)",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Data Structure"
     },
 
     {
@@ -324,7 +347,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Singleton_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Singleton_UML_class_diagram.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Singleton_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -337,7 +361,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Factory_method_pattern",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Factory_Method_UML_class_diagram.png"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Factory_Method_UML_class_diagram.png",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -350,7 +375,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Abstract_factory_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Abstract_factory_UML.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Abstract_factory_UML.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -363,7 +389,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Decorator_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Decorator_UML_class_diagram.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Decorator_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -376,7 +403,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Adapter_pattern",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Adapter_using_delegation_UML_class_diagram.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Adapter_using_delegation_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -389,7 +417,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Observer_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Observer_w_update.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Observer_w_update.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -402,7 +431,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Strategy_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:StrategyPattern_IBrakeBehavior.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:StrategyPattern_IBrakeBehavior.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -415,7 +445,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Composite_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Composite_UML_class_diagram_(fixed).svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Composite_UML_class_diagram_(fixed).svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -428,7 +459,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Delegation_pattern",
       "item_image_source": "www.growingwiththeweb.com",
-      "item_image_source_url":"https://www.growingwiththeweb.com/2012/07/design-patterns-delegation-pattern.html"
+      "item_image_source_url":"https://www.growingwiththeweb.com/2012/07/design-patterns-delegation-pattern.html",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -441,7 +473,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"en.wikipedia.org/wiki/Bridge_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Bridge_UML_class_diagram.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Bridge_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -454,7 +487,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Builder_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Builder_UML_class_diagram.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Builder_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -467,7 +501,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Visitor_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Visitor_design_pattern.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Visitor_design_pattern.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -480,7 +515,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/State_pattern",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:State_Design_Pattern_UML_Class_Diagram.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:State_Design_Pattern_UML_Class_Diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -493,7 +529,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Template_method_pattern",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Template_Method_UML_class_diagram.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Template_Method_UML_class_diagram.svg",
+      "item_group": "Design Pattern"
     },
 
     {
@@ -506,7 +543,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Shortest_path_optimal_substructure.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Shortest_path_optimal_substructure.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -519,7 +557,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Greedy_algorithm",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Greedy_algorithm_36_cents.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Greedy_algorithm_36_cents.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -532,7 +571,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg "
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:Merge_sort_algorithm_diagram.svg ",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -545,7 +585,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Recursion_(computer_science)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Recursive1.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Recursive1.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -558,7 +599,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Analysis_of_algorithms",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Comparison_computational_complexity.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Comparison_computational_complexity.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -571,7 +613,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Regular_expression",
       "item_image_source": "Wikimedia",
-      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_regular-expression.svg"
+      "item_image_source_url":"https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_regular-expression.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -584,7 +627,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)",
       "item_image_source": "Wikipedia",
-      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Method_overriding_in_subclass.svg"
+      "item_image_source_url":"https://en.wikipedia.org/wiki/File:Method_overriding_in_subclass.svg",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -597,7 +641,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Polymorphism_(computer_science)",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -610,7 +655,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -623,7 +669,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Abstraction_(computer_science)",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -636,7 +683,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Unit_testing",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Programming Concept"
     },
 
     {
@@ -649,7 +697,8 @@
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Access_modifiers",
       "item_image_source": "none",
-      "item_image_source_url":"none"
+      "item_image_source_url":"none",
+      "item_group": "Programming Concept"
     }
   ]
 }
