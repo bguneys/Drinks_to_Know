@@ -16,5 +16,9 @@
     <string name="notification_channel_name">Daily information</string>
     <string name="notification_channel_description">Daily information notification</string>
     <string name="notification_title">New Information!</string>
-    <string name="notification_message">Tap to learn about about %1$s</string>
+    <string name="notification_message">Tap to learn about %1$s</string>
+    <string name="item_text_source">Text: %1$s</string>
+    <string name="item_image_source">Image: %1$s</string>
+
+
 </resources>

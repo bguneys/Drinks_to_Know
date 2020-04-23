@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mItemHeaderTextView;
     TextView mItemDescriptionTextView;
+    TextView mItemSourceText;
+    TextView mItemSourceImage;
     ImageView mItemImageView;
     ImageView mFavouriteImageView;
     Button mNextItemButton;
@@ -50,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
+        mItemSourceText = findViewById(R.id.textView_itemSourceText);
+        mItemSourceImage = findViewById(R.id.textView_itemSourceImage);
         mItemImageView = findViewById(R.id.imageView_itemImage);
         mFavouriteImageView = findViewById(R.id.imageView_favourite);
         mNextItemButton = findViewById(R.id.button_nextItem);
@@ -69,7 +74,24 @@ public class MainActivity extends AppCompatActivity {
 
                 mItemHeaderTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
-                mItemImageView.setImageResource(mCurrentItem.getItemImage());
+
+                //If there is no source then hide the text source TextView
+                if (mCurrentItem.getItemSourceText().equals("none")) {
+                    mItemSourceText.setVisibility(View.GONE);
+                } else {
+                    mItemSourceText.setText(getString(R.string.item_text_source, mCurrentItem.getItemSourceText()));
+                    mItemSourceText.setVisibility(View.VISIBLE);
+                }
+
+                //If there is no source then hide the image source TextView
+                if (mCurrentItem.getItemSourceImage().equals("none")) {
+                    mItemSourceImage.setVisibility(View.GONE);
+                } else {
+                    mItemSourceImage.setText(getString(R.string.item_image_source, mCurrentItem.getItemSourceImage()));
+                    mItemSourceImage.setVisibility(View.VISIBLE);
+                }
+
+                //mItemImageView.setImageResource(mCurrentItem.getItemImage());
                 Glide.with(MainActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
 
                 //If the current item is favourite then image changes
@@ -101,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //Show next item according to item id in the list when clicked on button
         mNextItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,6 +137,36 @@ public class MainActivity extends AppCompatActivity {
 
                 mMainViewModel.getNextItemWithId(mCurrentItemId);
 
+            }
+        });
+
+        //Visit the text source website when clicked on source TextView
+        mItemSourceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = mCurrentItem.getItemSourceTextUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+                if(intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        //Visit the image source website when clicked on source TextView
+        mItemSourceImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = mCurrentItem.getItemSourceImageUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+                if(intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 

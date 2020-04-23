@@ -105,8 +105,22 @@ public abstract class ItemDatabase extends RoomDatabase {
                 String itemDescription = jsonItem.getString("item_description");
                 int itemImage = context.getResources().getIdentifier(jsonItem.getString("item_image"), "drawable", context.getPackageName());
                 boolean itemFavourite = jsonItem.getBoolean("item_favourite");
+                String itemSourceText = jsonItem.getString("item_text_source");
+                String itemSourceTextUrl = jsonItem.getString("item_text_source_url");
+                String itemSourceImage = jsonItem.getString("item_image_source");
+                String itemSourceImageUrl = jsonItem.getString("item_image_source_url");
 
-                Item newItem = new Item(itemId, itemName, itemSummary, itemDescription, itemImage, itemFavourite);
+                Item newItem = new Item(itemId,
+                        itemName,
+                        itemSummary,
+                        itemDescription,
+                        itemImage,
+                        itemFavourite,
+                        itemSourceText,
+                        itemSourceTextUrl,
+                        itemSourceImage,
+                        itemSourceImageUrl);
+
                 dao.insert(newItem);
             }
         }
