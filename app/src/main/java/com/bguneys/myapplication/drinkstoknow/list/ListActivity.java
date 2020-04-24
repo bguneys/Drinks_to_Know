@@ -1,5 +1,7 @@
 package com.bguneys.myapplication.drinkstoknow.list;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +15,7 @@ import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -33,6 +36,7 @@ public class ListActivity extends AppCompatActivity {
     ListViewModel mListViewModel;
     ListViewModelFactory mListViewModelFactory;
     DataRepository mRepository;
+    boolean isSearchFinished; //variable for checking if search submit button tapped
 
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
@@ -83,6 +87,47 @@ public class ListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.list_menu, menu);
+
+        //Add necessary SearchView callback methods
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Search..");
+        searchView.setSubmitButtonEnabled(true);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                isSearchFinished = true; //assign boolean true to signal submit button tapped
+                searchView.onActionViewCollapsed();
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                //check if search submit button tapped
+                if (!isSearchFinished) {
+
+                    //Populating the list with items matching the string typed in search area on toolbar
+                    String searchString = "%" + s + "%"; //wildcard characters added for search query
+
+                    mListViewModel.getItemsWithName(searchString).observe(ListActivity.this, new Observer<List<Item>>() {
+                        @Override
+                        public void onChanged(List<Item> items) {
+                            mAdapter.populateList(items);
+                        }
+                    });
+                }
+
+                isSearchFinished = false; //reset boolean when starting a new search
+
+                return false;
+            }
+        });
+
         return true;
     }
 

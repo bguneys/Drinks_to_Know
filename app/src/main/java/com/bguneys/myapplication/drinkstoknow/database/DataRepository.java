@@ -55,6 +55,10 @@ public class DataRepository {
         return mItemDao.getItemWithId(id);
     }
 
+    public LiveData<List<Item>> getItemsWithName(String name) {
+        return mItemDao.getItemsWithName(name);
+    }
+
     public void insert (final Item item) {
         ItemDatabase.databaseExecutor.execute(new Runnable() {
             @Override

@@ -39,6 +39,9 @@ public interface ItemDao {
     @Query("SELECT * FROM Items_table WHERE item_id LIKE:itemId")
     LiveData<Item> getItemWithId(int itemId);
 
+    @Query("SELECT * FROM Items_table WHERE item_name LIKE:itemName")
+    LiveData<List<Item>> getItemsWithName(String itemName);
+
     @Query("SELECT * FROM Items_table WHERE item_id LIKE:itemId")
     Item getNextItemWithId(int itemId);
 
