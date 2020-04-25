@@ -11,8 +11,7 @@
         app:iconSpaceReserved="false" />
     <Preference
         android:id="@+id/info"
-        android:key="@string/info_preference"
-        android:summary="Information about the application"
-        android:title="About"
+        android:key="@string/disclaimer_preference"
+        android:title="Disclaimer"
         app:iconSpaceReserved="false" />
 </PreferenceScreen>

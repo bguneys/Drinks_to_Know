@@ -1,5 +1,6 @@
 package com.bguneys.myapplication.drinkstoknow.settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
             if (((SwitchPreference) preference).isChecked()) {
                 PeriodicWorkRequest.Builder workRequestBuilder = new PeriodicWorkRequest.Builder(NotificationWorker.class, 15, TimeUnit.MINUTES);
-                workRequestBuilder.setInitialDelay(15, TimeUnit.MINUTES);
+                workRequestBuilder.setInitialDelay(1, TimeUnit.DAYS);
                 PeriodicWorkRequest workRequest = workRequestBuilder.build();
                 mWorkManager.enqueue(workRequest);
 
@@ -42,6 +43,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 mWorkManager.cancelAllWork();
             }
 
+        }
+
+        if ( preference.getKey().equals(getString(R.string.disclaimer_preference))) {
+            Intent intent = new Intent(getActivity(), DisclaimerActivity.class);
+            startActivity(intent);
         }
 
         return super.onPreferenceTreeClick(preference);

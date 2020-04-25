@@ -53,7 +53,7 @@ public class NotificationWorker extends Worker {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                 .setContentTitle(getApplicationContext().getResources().getString(R.string.notification_title))
                 .setContentText(getApplicationContext().getResources().getString(R.string.notification_message, randomItem.getItemName()))
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

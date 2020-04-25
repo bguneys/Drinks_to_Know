@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        //getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
