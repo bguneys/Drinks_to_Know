@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +25,8 @@ import com.bguneys.myapplication.drinkstoknow.main.MainViewModel;
 import com.bguneys.myapplication.drinkstoknow.main.MainViewModelFactory;
 import com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity;
 import com.bumptech.glide.Glide;
+
+import static com.bguneys.myapplication.drinkstoknow.database.Constants.NUMBER_OF_ITEMS;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -105,73 +108,77 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Clicking favourite button makes the current item favourite and changes the image
-        mFavouriteImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mCurrentItem.isItemFavourite()) {
-                    mCurrentItem.setItemFavourite(false);
-                    Toast.makeText(MainActivity.this, "Removed from Favourites", Toast.LENGTH_SHORT).show();
-                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
+    //Clicking favourite button makes the current item favourite and changes the image
+        mFavouriteImageView.setOnClickListener(new View.OnClickListener()
 
-                } else {
-                    mCurrentItem.setItemFavourite(true);
-                    Toast.makeText(MainActivity.this, "Added to Favourites", Toast.LENGTH_SHORT).show();
-                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
-                }
+    {
+        @Override
+        public void onClick (View view){
+        if (mCurrentItem.isItemFavourite()) {
+            mCurrentItem.setItemFavourite(false);
+            mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
 
-                mMainViewModel.setFavorite(mCurrentItem);
-            }
-        });
+        } else {
+            mCurrentItem.setItemFavourite(true);
+            mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
+        }
 
-        //Show next item according to item id in the list when clicked on button
-        mNextItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        mMainViewModel.setFavorite(mCurrentItem);
+    }
+    });
 
-                //If last item is shown then go back to the first item
-                if (mCurrentItemId == 50) {
-                    mCurrentItemId = 0;
-                }
+    //Show next item according to item id in the list when clicked on button
+        mNextItemButton.setOnClickListener(new View.OnClickListener()
 
-                mCurrentItemId++;
+    {
+        @Override
+        public void onClick (View view){
 
-                mMainViewModel.getNextItemWithId(mCurrentItemId);
+        //If last item is shown then go back to the first item
+        if (mCurrentItemId == NUMBER_OF_ITEMS) {
+            mCurrentItemId = 0;
+        }
 
-            }
-        });
+        mCurrentItemId++;
 
-        //Visit the text source website when clicked on source TextView
-        mItemSourceText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String url = mCurrentItem.getItemSourceTextUrl();
-                Uri uri = Uri.parse(url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
-                if(intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
-
-        //Visit the image source website when clicked on source TextView
-        mItemSourceImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String url = mCurrentItem.getItemSourceImageUrl();
-                Uri uri = Uri.parse(url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
-                if(intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
+        mMainViewModel.getNextItemWithId(mCurrentItemId);
 
     }
+    });
+
+    //Visit the text source website when clicked on source TextView
+        mItemSourceText.setOnClickListener(new View.OnClickListener()
+
+    {
+        @Override
+        public void onClick (View view){
+
+        String url = mCurrentItem.getItemSourceTextUrl();
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+    });
+
+    //Visit the image source website when clicked on source TextView
+        mItemSourceImage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick (View view){
+
+        String url = mCurrentItem.getItemSourceImageUrl();
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+    });
+
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -182,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
 
             case R.id.action_list:
                 Intent listIntent = new Intent(this, ListActivity.class);

@@ -11,7 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".settings.DisclaimerActivity"
+        <activity
+            android:name=".LauncherActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/AppTheme.NoActionBar.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".settings.DisclaimerActivity"
             android:label="@string/disclaimer"
             android:parentActivityName=".settings.SettingsActivity"
             android:screenOrientation="portrait"
@@ -20,7 +32,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".settings.SettingsActivity" />
-
         </activity>
 
         <activity
@@ -41,6 +52,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".details.DetailsActivity"
             android:parentActivityName=".list.ListActivity"
@@ -51,6 +63,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".list.ListActivity" />
         </activity>
+
         <activity
             android:name=".list.ListActivity"
             android:label="@string/title_activity_list"
@@ -62,6 +75,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:icon="@mipmap/ic_launcher"
@@ -69,11 +83,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

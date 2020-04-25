@@ -15,5 +15,7 @@ public final class Constants {
     public static final String COLUMN_ITEM_GROUP = "item_group";
     public static final String TABLE_NAME = "items_table";
     public static final String DATABASE_NAME = "items_database";
+    public static final int NUMBER_OF_ITEMS = 50;
+
 
 }
