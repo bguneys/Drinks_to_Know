@@ -23,7 +23,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
         mItemNameTextView = itemView.findViewById(R.id.itemName_textView);
         mItemSummaryTextView = itemView.findViewById(R.id.itemSummary_textView);
-        //mItemImageImageView = itemView.findViewById(R.id.itemImage_ImageView);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +36,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     public void bind (Item currentItem, Context context) {
         mItemNameTextView.setText(currentItem.getItemName());
         mItemSummaryTextView.setText(currentItem.getItemSummary());
-        //mItemImageImageView.setImageResource(currentItem.getItemImage());
-        //Glide.with(context).load(currentItem.getItemImage()).into(mItemImageImageView);
     }
 
     public interface ClickListener {

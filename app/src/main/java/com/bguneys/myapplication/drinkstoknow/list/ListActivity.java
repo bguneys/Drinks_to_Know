@@ -1,7 +1,5 @@
 package com.bguneys.myapplication.drinkstoknow.list;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -25,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -184,10 +181,8 @@ public class ListActivity extends AppCompatActivity {
      */
     private void launchDetailsActivity(Item item) {
         Intent intent = new Intent(this, DetailsActivity.class);
-        int drinkId = item.getItemId();
-        String drinkName = item.getItemName();
-        String drinkDescription = item.getItemDescription();
-        intent.putExtra(EXTRA_ITEM_ID, drinkId);
+        int itemId = item.getItemId();
+        intent.putExtra(EXTRA_ITEM_ID, itemId);
         startActivity(intent);
     }
 

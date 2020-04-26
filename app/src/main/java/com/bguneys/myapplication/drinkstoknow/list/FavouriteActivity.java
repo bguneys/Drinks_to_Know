@@ -105,10 +105,8 @@ public class FavouriteActivity extends AppCompatActivity {
      */
     private void launchDetailsActivity(Item item) {
         Intent intent = new Intent(this, DetailsActivity.class);
-        int drinkId = item.getItemId();
-        String drinkName = item.getItemName();
-        String drinkDescription = item.getItemDescription();
-        intent.putExtra(EXTRA_ITEM_ID, drinkId);
+        int itemId = item.getItemId();
+        intent.putExtra(EXTRA_ITEM_ID, itemId);
         startActivity(intent);
     }
 }

@@ -35,8 +35,6 @@ public class DetailsActivity extends AppCompatActivity {
 
     private Item mCurrentItem;
 
-    //private CollapsingToolbarLayout mCollapsingToolbar;
-
     static final String EXTRA_ITEM_ID = "com.bguneys.myapplication.EXTRA_ITEM_ID";
 
     @Override
@@ -68,7 +66,6 @@ public class DetailsActivity extends AppCompatActivity {
                 mCurrentItem = item;
                 mItemNameTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
-                //mItemImageView.setImageResource(mCurrentItem.getItemImage());
                 Glide.with(DetailsActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
             }
         });

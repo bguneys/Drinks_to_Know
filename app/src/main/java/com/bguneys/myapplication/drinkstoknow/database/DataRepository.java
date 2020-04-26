@@ -37,10 +37,6 @@ public class DataRepository {
         mItemList = mItemDao.getItemList();
     }
 
-    public LiveData<List<Item>> getItemList() {
-        return mItemList;
-    }
-
     public LiveData<List<Item>> getFavouriteItemList() {
         mFavouriteItemList = mItemDao.getFavouriteItemList();
         return mFavouriteItemList;
@@ -57,24 +53,6 @@ public class DataRepository {
 
     public LiveData<List<Item>> getItemsWithName(String name) {
         return mItemDao.getItemsWithName(name);
-    }
-
-    public void insert (final Item item) {
-        ItemDatabase.databaseExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                mItemDao.insert(item);
-            }
-        });
-    }
-
-    public void delete (final Item item) {
-        ItemDatabase.databaseExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                mItemDao.delete(item);
-            }
-        });
     }
 
     @Nullable

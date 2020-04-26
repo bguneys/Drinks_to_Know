@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,8 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
 import com.bguneys.myapplication.drinkstoknow.database.Item;
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mItemImageView;
     ImageView mFavouriteImageView;
     Button mNextItemButton;
+    ScrollView mScrollView;
 
     private Item mCurrentItem;
     int mCurrentItemId;
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-        //getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         mItemHeaderTextView = findViewById(R.id.textView_itemHeader);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mItemImageView = findViewById(R.id.imageView_itemImage);
         mFavouriteImageView = findViewById(R.id.imageView_favourite);
         mNextItemButton = findViewById(R.id.button_nextItem);
+        mScrollView = findViewById(R.id.scrollView_itemDescription);
 
         mRepository = DataRepository.getInstance(this);
 
@@ -108,77 +108,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    //Clicking favourite button makes the current item favourite and changes the image
-        mFavouriteImageView.setOnClickListener(new View.OnClickListener()
+        //Clicking favourite button makes the current item favourite and changes the image
+        mFavouriteImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mCurrentItem.isItemFavourite()) {
+                    mCurrentItem.setItemFavourite(false);
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
 
-    {
-        @Override
-        public void onClick (View view){
-        if (mCurrentItem.isItemFavourite()) {
-            mCurrentItem.setItemFavourite(false);
-            mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_empty_dark);
+                } else {
+                    mCurrentItem.setItemFavourite(true);
+                    mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
+                }
 
-        } else {
-            mCurrentItem.setItemFavourite(true);
-            mFavouriteImageView.setImageResource(R.drawable.ic_action_heart_full_dark);
-        }
+                mMainViewModel.setFavorite(mCurrentItem);
+            }
+        });
 
-        mMainViewModel.setFavorite(mCurrentItem);
-    }
-    });
+        //Show next item according to item id in the list when clicked on button
+        mNextItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    //Show next item according to item id in the list when clicked on button
-        mNextItemButton.setOnClickListener(new View.OnClickListener()
+                //If last item is shown then go back to the first item
+                if (mCurrentItemId == NUMBER_OF_ITEMS) {
+                    mCurrentItemId = 0;
+                }
 
-    {
-        @Override
-        public void onClick (View view){
+                mCurrentItemId++;
 
-        //If last item is shown then go back to the first item
-        if (mCurrentItemId == NUMBER_OF_ITEMS) {
-            mCurrentItemId = 0;
-        }
+                mMainViewModel.getNextItemWithId(mCurrentItemId);
 
-        mCurrentItemId++;
+                //Make ScrollView scroll to the start when Next button clicked.
+                mScrollView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mScrollView.smoothScrollTo(0, 0);
+                    }
+                });
 
-        mMainViewModel.getNextItemWithId(mCurrentItemId);
+            }
+        });
 
-    }
-    });
+        //Visit the text source website when clicked on source TextView
+        mItemSourceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    //Visit the text source website when clicked on source TextView
-        mItemSourceText.setOnClickListener(new View.OnClickListener()
+                String url = mCurrentItem.getItemSourceTextUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
-    {
-        @Override
-        public void onClick (View view){
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
 
-        String url = mCurrentItem.getItemSourceTextUrl();
-        Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-    });
-
-    //Visit the image source website when clicked on source TextView
+        //Visit the image source website when clicked on source TextView
         mItemSourceImage.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick (View view){
+            @Override
+            public void onClick(View view) {
 
-        String url = mCurrentItem.getItemSourceImageUrl();
-        Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                String url = mCurrentItem.getItemSourceImageUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
-    });
-
-}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

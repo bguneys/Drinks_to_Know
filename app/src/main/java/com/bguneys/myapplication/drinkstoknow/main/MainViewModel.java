@@ -10,20 +10,20 @@ import androidx.lifecycle.ViewModel;
 public class MainViewModel extends ViewModel {
 
     private final DataRepository mRepository;
-    private final MutableLiveData<Item> mDrink = new MutableLiveData<>();
-    private LiveData<Item> mLiveDataDrink;
+    private final MutableLiveData<Item> mItem = new MutableLiveData<>();
+    private LiveData<Item> mLiveDataItem;
 
     public MainViewModel(DataRepository dataRepository) {
         mRepository = dataRepository;
     }
 
     public void getRandomItem() {
-        mDrink.setValue(mRepository.getRandomItem());
-        mLiveDataDrink = mDrink;
+        mItem.setValue(mRepository.getRandomItem());
+        mLiveDataItem = mItem;
     }
 
     public LiveData<Item> getItem() {
-        return mLiveDataDrink;
+        return mLiveDataItem;
     }
 
     public void setFavorite(Item item) {
@@ -31,7 +31,7 @@ public class MainViewModel extends ViewModel {
     }
 
     public void getNextItemWithId(int id) {
-        mDrink.setValue(mRepository.getNextItemWithId(id));
-        mLiveDataDrink = mDrink;
+        mItem.setValue(mRepository.getNextItemWithId(id));
+        mLiveDataItem = mItem;
     }
 }

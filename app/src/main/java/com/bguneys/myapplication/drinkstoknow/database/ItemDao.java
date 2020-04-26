@@ -24,17 +24,11 @@ public interface ItemDao {
     @Insert
     void insert(Item item);
 
-    @Delete
-    void delete(Item item);
-
     @Query("SELECT * FROM Items_table LIMIT 1")
     Item[] getAnyItem();
 
     @Query("SELECT * FROM Items_table ORDER BY RANDOM() LIMIT 1")
     Item getRandomItem();
-
-    @Query("DELETE FROM Items_table")
-    void deleteAll();
 
     @Query("SELECT * FROM Items_table WHERE item_id LIKE:itemId")
     LiveData<Item> getItemWithId(int itemId);

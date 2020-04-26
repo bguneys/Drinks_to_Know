@@ -1,7 +1,7 @@
 package com.bguneys.myapplication.drinkstoknow.database;
 
 import android.content.Context;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.bguneys.myapplication.drinkstoknow.R;
 
@@ -61,7 +61,6 @@ public abstract class ItemDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     ItemDao dao = getInstance(sContext.get()).getItemDao();
-                    //dao.deleteAll();
 
                     if (dao.getAnyItem().length < 1) {
                        parseJson(sContext.get());
@@ -82,7 +81,7 @@ public abstract class ItemDatabase extends RoomDatabase {
         String json = "";
 
         try {
-            InputStream inputStream = context.getResources().openRawResource(R.raw.drinks_json_file);
+            InputStream inputStream = context.getResources().openRawResource(R.raw.items_json_file);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder stringBuilder = new StringBuilder();
@@ -94,10 +93,10 @@ public abstract class ItemDatabase extends RoomDatabase {
 
             json = stringBuilder.toString();
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray drinks = jsonObject.getJSONArray("items");
+            JSONArray items = jsonObject.getJSONArray("items");
 
-            for (int i = 0; i < drinks.length(); i++) {
-                JSONObject jsonItem = drinks.getJSONObject(i);
+            for (int i = 0; i < items.length(); i++) {
+                JSONObject jsonItem = items.getJSONObject(i);
 
                 int itemId = jsonItem.getInt("item_id");
                 String itemName = jsonItem.getString("item_name");
@@ -127,8 +126,7 @@ public abstract class ItemDatabase extends RoomDatabase {
             }
         }
         catch (Exception e) {
-            //TODO: Delete Log when building proudction version
-            Log.e("Error", "JSON Error");
+            Toast.makeText(context.getApplicationContext(), R.string.data_loading_error_message, Toast.LENGTH_SHORT).show();
         }
     }
 

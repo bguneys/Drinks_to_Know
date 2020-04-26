@@ -53,8 +53,8 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemViewHolder
     }
 
     /**
-     * Populating adapter with the LiveData drink list taken from the Database through Viewmodel
-     * @param itemList The list of drinks will be taken from ViewModel inside MainActivity
+     * Populating adapter with the LiveData item list taken from the Database through Viewmodel
+     * @param itemList The list of items will be taken from ViewModel inside MainActivity
      */
     public void populateList(List<Item> itemList) {
         mItemList = itemList;
@@ -62,8 +62,8 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemViewHolder
     }
 
     /**
-     * Getter method for all the drinks inside cached drink list in adapter
-     * @return The list of cachd drinks inside adapter
+     * Getter method for all the items inside cached item list in adapter
+     * @return The list of cachd items inside adapter
      */
     public List<Item> getItemList() {
         return mItemList;

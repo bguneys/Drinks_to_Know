@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModel;
 public class ListViewModel extends ViewModel {
 
     private final DataRepository mRepository;
-    private final MutableLiveData<Boolean> mIsListFavourite = new MutableLiveData<>(false);
     private MutableLiveData<String> mListFilter = new MutableLiveData<>("%");
 
     public ListViewModel(DataRepository dataRepository) {
