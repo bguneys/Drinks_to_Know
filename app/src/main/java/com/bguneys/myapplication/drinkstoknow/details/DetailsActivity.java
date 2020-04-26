@@ -80,9 +80,9 @@ public class DetailsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.details_menu, menu);
 
         if (mCurrentItem.isItemFavourite()) {
-            menu.getItem(0).setIcon(R.drawable.ic_action_heart_full);
+            menu.getItem(0).setIcon(R.drawable.ic_action_heart_full_dark);
         } else {
-            menu.getItem(0).setIcon(R.drawable.ic_action_heart_empty);
+            menu.getItem(0).setIcon(R.drawable.ic_action_heart_empty_dark);
         }
 
         return true;
@@ -100,13 +100,11 @@ public class DetailsActivity extends AppCompatActivity {
             case R.id.action_favourite:
                 if (mCurrentItem.isItemFavourite()) {
                     mCurrentItem.setItemFavourite(false);
-                    Toast.makeText(DetailsActivity.this, "Removed from Favourites", Toast.LENGTH_SHORT).show();
-                    item.setIcon(R.drawable.ic_action_heart_empty);
+                    item.setIcon(R.drawable.ic_action_heart_empty_dark);
 
                 } else {
                     mCurrentItem.setItemFavourite(true);
-                    Toast.makeText(DetailsActivity.this, "Added to Favourites", Toast.LENGTH_SHORT).show();
-                    item.setIcon(R.drawable.ic_action_heart_full);
+                    item.setIcon(R.drawable.ic_action_heart_full_dark);
                 }
 
                 mDetailsViewModel.setFavorite(mCurrentItem);

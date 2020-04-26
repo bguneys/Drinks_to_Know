@@ -8,7 +8,7 @@
         android:id="@+id/action_favourite"
         android:orderInCategory="100"
         android:title="Favourite"
-        android:icon="@drawable/ic_action_heart_empty"
+        android:icon="@drawable/ic_action_heart_empty_dark"
         app:showAsAction="always" />
 
 </menu>
