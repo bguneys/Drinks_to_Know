@@ -313,11 +313,11 @@
       "item_id": 23,
       "item_name": "Tuple",
       "item_summary": "A data structure with ordered list of elements of different types",
-      "item_description": "A tuple is a data structure that is an ordered list of elements. Often, a tuple is represented as a comma-delimited list of the elements, enclosed in parentheses. Tuples are usually immutable, that is, their elements cannot be modified or deleted after they are set. Tuples are usually more performant (their data may be accessed faster) than a standard array. Tuples are ideal for storing a list of heterogenous items (that differ in type or length) whose value does not change.",
+      "item_description": "A tuple is a data structure which is a list of ordered elements. A tuple is usually represented as a comma-seperated list of the elements and enclosed in parentheses. Tuple elements usually can't be modified or removed after they are created which makes them immutable. Tuples mostly perform batter than a standard array and they are good choice for storing a list of items which have static value, different types or length.",
       "item_image": "img_tuple",
       "item_favourite": false,
-      "item_text_source": "Computer Hope",
-      "item_text_source_url":"https://www.computerhope.com/jargon/t/tuple.htm",
+      "item_text_source": "Wikipedia",
+      "item_text_source_url":"https://en.wikipedia.org/wiki/Tuple",
       "item_image_source": "none",
       "item_image_source_url":"none",
       "item_group": "Data Structure"
@@ -458,8 +458,8 @@
       "item_favourite": false,
       "item_text_source": "Wikipedia",
       "item_text_source_url":"https://en.wikipedia.org/wiki/Delegation_pattern",
-      "item_image_source": "www.growingwiththeweb.com",
-      "item_image_source_url":"https://www.growingwiththeweb.com/2012/07/design-patterns-delegation-pattern.html",
+      "item_image_source": "none",
+      "item_image_source_url":"none",
       "item_group": "Design Pattern"
     },
 
@@ -563,7 +563,7 @@
 
     {
       "item_id": 41,
-      "item_name": "Divide And COnquer Algorithm",
+      "item_name": "Divide And Conquer Algorithm",
       "item_summary": "An algorithm paradigm which breaks recursively a problem down into two or more sub-problems",
       "item_description": "Divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.\n\nThis divide-and-conquer technique is the basis of efficient algorithms for all kinds of problems, such as sorting (e.g., quicksort, merge sort). The divide-and-conquer paradigm is often used to find an optimal solution of a problem. Its basic idea is to decompose a given problem into two or more similar, but simpler, subproblems, to solve them in turn, and to compose their solutions to solve the given problem. \n\nDivide and conquer is a powerful tool for solving conceptually difficult problems: all it requires is a way of breaking the problem into sub-problems, of solving the trivial cases and of combining sub-problems to the original problem.",
       "item_image": "img_merge_sort",

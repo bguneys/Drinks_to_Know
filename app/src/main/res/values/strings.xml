@@ -17,7 +17,7 @@
     <string name="notification_channel_description">Daily information notification</string>
     <string name="notification_title">Term of The Day</string>
     <string name="notification_message">Tap to learn about %1$s</string>
-    <string name="item_text_source">Text: %1$s</string>
+    <string name="item_text_source">Content: %1$s</string>
     <string name="item_image_source">Image: %1$s</string>
     <string name="favourites">Favourites</string>
     <string name="disclaimer">Disclaimer</string>
