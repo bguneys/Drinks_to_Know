@@ -1,6 +1,7 @@
 package com.bguneys.myapplication.drinkstoknow.details;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.bguneys.myapplication.drinkstoknow.database.DataRepository;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +33,10 @@ public class DetailsActivity extends AppCompatActivity {
 
     TextView mItemNameTextView;
     TextView mItemDescriptionTextView;
+    TextView mItemSourceText;
+    TextView mItemSourceImage;
     ImageView mItemImageView;
+
 
     private Item mCurrentItem;
 
@@ -53,6 +58,8 @@ public class DetailsActivity extends AppCompatActivity {
         //mCollapsingToolbar = findViewById(R.id.collapsing_toolbar);
         mItemNameTextView = findViewById(R.id.textView_itemName);
         mItemDescriptionTextView = findViewById(R.id.textView_itemDescription);
+        mItemSourceText = findViewById(R.id.textView_itemSourceText);
+        mItemSourceImage = findViewById(R.id.textView_itemSourceImage);
         mItemImageView = findViewById(R.id.imageView_itemImage);
 
         mRepository = DataRepository.getInstance(this);
@@ -67,6 +74,52 @@ public class DetailsActivity extends AppCompatActivity {
                 mItemNameTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
                 Glide.with(DetailsActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
+
+                //If there is no source then hide the text source TextView
+                if (mCurrentItem.getItemSourceText().equals("none")) {
+                    mItemSourceText.setVisibility(View.GONE);
+                } else {
+                    mItemSourceText.setText(getString(R.string.item_text_source, mCurrentItem.getItemSourceText()));
+                    mItemSourceText.setVisibility(View.VISIBLE);
+                }
+
+                //If there is no source then hide the image source TextView
+                if (mCurrentItem.getItemSourceImage().equals("none")) {
+                    mItemSourceImage.setVisibility(View.GONE);
+                } else {
+                    mItemSourceImage.setText(getString(R.string.item_image_source, mCurrentItem.getItemSourceImage()));
+                    mItemSourceImage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        //Visit the text source website when clicked on source TextView
+        mItemSourceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = mCurrentItem.getItemSourceTextUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        //Visit the image source website when clicked on source TextView
+        mItemSourceImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = mCurrentItem.getItemSourceImageUrl();
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 

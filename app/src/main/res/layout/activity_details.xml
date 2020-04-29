@@ -45,23 +45,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_itemImage" />
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <include
+        layout="@layout/content_details"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
-        android:fadeScrollbars="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_itemName">
-
-        <include
-            layout="@layout/content_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/textView_itemName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

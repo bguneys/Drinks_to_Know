@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                 mItemHeaderTextView.setText(mCurrentItem.getItemName());
                 mItemDescriptionTextView.setText(mCurrentItem.getItemDescription());
+                Glide.with(MainActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
 
                 //If there is no source then hide the text source TextView
                 if (mCurrentItem.getItemSourceText().equals("none")) {
@@ -94,9 +95,6 @@ public class MainActivity extends AppCompatActivity {
                     mItemSourceImage.setText(getString(R.string.item_image_source, mCurrentItem.getItemSourceImage()));
                     mItemSourceImage.setVisibility(View.VISIBLE);
                 }
-
-                //mItemImageView.setImageResource(mCurrentItem.getItemImage());
-                Glide.with(MainActivity.this).load(mCurrentItem.getItemImage()).into(mItemImageView);
 
                 //If the current item is favourite then image changes
                 if (mCurrentItem.isItemFavourite()) {
