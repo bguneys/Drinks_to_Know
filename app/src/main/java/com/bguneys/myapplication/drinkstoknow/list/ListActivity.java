@@ -133,10 +133,6 @@ public class ListActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
 
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-
             case R.id.action_favourite:
                 Intent intent = new Intent(this, FavouriteActivity.class);
                 startActivity(intent);
