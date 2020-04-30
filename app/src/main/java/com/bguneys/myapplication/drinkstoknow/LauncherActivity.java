@@ -43,5 +43,6 @@ public class LauncherActivity extends AppCompatActivity {
         //If database is loaded then start MainActivity
         Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }
