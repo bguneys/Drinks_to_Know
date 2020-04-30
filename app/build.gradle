@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.bguneys.myapplication.drinkstoknow"
+        applicationId "com.bguneys.project.softwareterms"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
