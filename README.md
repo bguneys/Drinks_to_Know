@@ -1,6 +1,6 @@
 # Must-Know Software Terms
 
-[![](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+[![](logo_image.png)](logo_image.png)
 
 ### Introduction
 "Must-Know Software Terms" is an Android mobile application which has a collection of software terms that developers at the start of their career would benefit knowing. It serves users important software terms and concepts to help them learn in a repetitive manner without getting into complex detail.
