@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bguneys.project.softwareterms">
+    package="com.bguneys.myapplication.drinkstoknow">
 
     <application
         android:allowBackup="true"
@@ -10,80 +10,84 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity
-            android:name="com.bguneys.project.softwareterms.LauncherActivity"
+        <activity android:name=".settings.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".settings.SettingsActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:theme="@style/AppTheme.NoActionBar.Launcher">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity" />
+
+        </activity>
+        <activity
+            android:name=".LauncherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Launcher"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.bguneys.project.softwareterms.settings.DisclaimerActivity"
+            android:name=".settings.DisclaimerActivity"
             android:label="@string/disclaimer"
-            android:parentActivityName="com.bguneys.project.softwareterms.settings.SettingsActivity"
+            android:parentActivityName=".settings.SettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bguneys.project.softwareterms.settings.SettingsActivity" />
+                android:value="com.bguneys.myapplication.drinkstoknow.settings.SettingsActivity" />
         </activity>
-
         <activity
-            android:name="com.bguneys.project.softwareterms.list.FavouriteActivity"
+            android:name=".list.FavouriteActivity"
             android:label="@string/favourites"
-            android:parentActivityName="com.bguneys.project.softwareterms.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bguneys.project.softwareterms.MainActivity" />
+                android:value="com.bguneys.myapplication.drinkstoknow.MainActivity" />
         </activity>
-
         <activity
-            android:name="com.bguneys.project.softwareterms.settings.SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
-            android:name="com.bguneys.project.softwareterms.details.DetailsActivity"
-            android:parentActivityName="com.bguneys.project.softwareterms.list.ListActivity"
+            android:name=".details.DetailsActivity"
+            android:parentActivityName=".list.ListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bguneys.project.softwareterms.list.ListActivity" />
+                android:value="com.bguneys.myapplication.drinkstoknow.list.ListActivity" />
         </activity>
-
         <activity
-            android:name="com.bguneys.project.softwareterms.list.ListActivity"
+            android:name=".list.ListActivity"
             android:label="@string/title_activity_list"
-            android:parentActivityName="com.bguneys.project.softwareterms.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bguneys.project.softwareterms.MainActivity" />
+                android:value="com.bguneys.myapplication.drinkstoknow.MainActivity" />
         </activity>
-
         <activity
-            android:name="com.bguneys.project.softwareterms.MainActivity"
+            android:name=".MainActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
+            tools:ignore="LockedOrientationActivity"></activity>
     </application>
 
 </manifest>

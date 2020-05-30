@@ -6,12 +6,29 @@
         android:id="@+id/notification"
         android:defaultValue="false"
         android:key="@string/notification_preference"
-        android:summary="Turn on for daily information"
-        android:title="Daily Notification"
+        android:summary="@string/turn_on_daily_notification"
+        android:title="@string/daily_notification"
         app:iconSpaceReserved="false" />
     <Preference
         android:id="@+id/info"
         android:key="@string/disclaimer_preference"
-        android:title="Disclaimer"
+        android:title="@string/disclaimer"
+        app:iconSpaceReserved="false" />
+    <Preference
+        android:id="@+id/share_app"
+        android:key="@string/share_app_preference"
+        android:title="@string/share_the_app"
+        app:iconSpaceReserved="false" />
+
+    <Preference
+        android:id="@+id/rate_app"
+        android:key="@string/rate_app_preference"
+        android:title="@string/rate_the_app"
+        app:iconSpaceReserved="false" />
+
+    <Preference
+        android:id="@+id/about"
+        android:key="@string/about_preference"
+        android:title="@string/about"
         app:iconSpaceReserved="false" />
 </PreferenceScreen>
