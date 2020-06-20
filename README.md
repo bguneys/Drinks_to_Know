@@ -3,7 +3,7 @@
 [![](logo_image.png)](logo_image.png)
 
 ### Introduction
-"Must-Know Software Terms" is an Android mobile application which has a collection of software terms that developers at the start of their career would benefit knowing. It serves users important software terms and concepts to help them learn in a repetitive manner without getting into complex detail.
+"Must-Know Software Terms" is an Android application which provides a collection of important software terms for developers learning software development. It serves users important software terms and concepts to help them learn in a repetitive manner without getting into complex detail.
 
 ### Features
 - The terms and concepts in the application are chosen with a study of the books and articles written by experts in the field.
